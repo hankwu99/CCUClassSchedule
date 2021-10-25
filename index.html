@@ -7,17 +7,24 @@
     </head>
 
     <body>
-        <h1 style = "color: white; margin-left: 10%;">Class Table | 課表製作器</h1>
+        <h1 style = "color: white; margin-left: 10%;">CCU Class Schedule | 鳳梨課表製作器</h1>
         <div class = "info">
             <div id = "box1">
                 <p style = "color : white;">課程名稱</p>
-                <input id = "input" class = "text" name = "name" placeholder = "course name">
+                <input id = "input" class = "text" name = "name" placeholder = "course">
             </div>
             <div id = "box2">
                 <p style = "color : white;">課程教室</p>
                 <input id = "input2" class = "text" name = "location" placeholder = "location">
             </div>
             <div id = "box3">
+                <p style = "color : white;">課程類型</p>
+                <select name = "types" id = "type">
+                    <option value = "small">小堂 50 min</option>
+                    <option value = "big">大堂 75 min</option>
+                </select>
+            </div>
+            <div id = "box4">
                 <input type = "button" class = "submit" id = "button" value = "新增課程選項" >
             </div>
         </div>
