@@ -9,11 +9,11 @@ body
 }
 #box1
 {
-    width: 10%;
-    margin-left: 10%;
+    width: 15%;
+    margin-left: 8%;
     display: inline-block;
 }
-#box2, #box3
+#box2, #box3, #box4
 {
     width: 10%;
     display: inline-block;
@@ -21,7 +21,7 @@ body
 .text
 {
     background: none;
-    width: 50%;
+    width: 40%;
     text-align: center;
     border: 2px solid #aaffc6;
     padding: 10px 20px;
@@ -33,7 +33,7 @@ body
 {
     margin-top: 10px;
     background: none;
-    width: 140px;
+    width: 100px;
     text-align: center;
     border: 2px solid #aaffc6;
     padding: 10px 20px;
@@ -41,6 +41,18 @@ body
     font-size: 15px;
     border-radius: 20px;
     transition: 0.5s;
+}
+#type
+{
+    margin-top: 10px;
+    background: none;
+    width: 100px;
+    text-align: center;
+    border: 2px solid #aaffc6;
+    padding: 5px 20px;
+    color: rgb(164, 255, 192);
+    font-size: 14px;
+    border-radius: 20px;
 }
 .submit:hover
 {

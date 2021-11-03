@@ -2,27 +2,40 @@
 <html>
     <head>
         <meta charset = "utf-8"></meta>
-        <title>Class Table Maker</title>
-        <link rel = "stylesheet" type = "text/css" href = "style.css">
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+        <title>CCU Class Schedule</title>
+        <link href = "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel = "stylesheet" integrity=  "sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin = "anonymous">
     </head>
 
-    <body>
-        <h1 style = "color: white; margin-left: 10%;">Class Table | 課表製作器</h1>
-        <div class = "info">
-            <div id = "box1">
-                <p style = "color : white;">課程名稱</p>
-                <input id = "input" class = "text" name = "name" placeholder = "course name">
+    <body class = "p-3 mb-2 bg-dark text-white ">
+        <ul class = "nav nav-pills justify-content-end">
+            <li class = "nav-item">
+                <a class = "navbar-brand" href = "#">CCU 鳳梨課表</a>
+            </li>
+        </ul>
+        <div class = "col-sm-6">
+            <div class = "alert alert-dark" role = "alert">
+                本網站由基礎Bootstrap框架建構而成，為資工系大一學生專題作業。<br>
+                目前將致力於改善中正學生排課使用服務。
             </div>
-            <div id = "box2">
-                <p style = "color : white;">課程教室</p>
-                <input id = "input2" class = "text" name = "location" placeholder = "location">
+            <div class = "input-group">
+                <span class = "input-group-text" id = "inputGroup-sizing-sm">課程名稱與教室</span>
+                <input type = "text" aria-label = "Course name" class = "form-control" id = "Course name" >
+                <input type = "text" aria-label = "Classroom" class = "form-control" id = "Classroom">
+                <select class = "custom-select" id = "inputGroupSelect">
+                    <option selected>課程類型</option>
+                    <option value = "1">大堂</option>
+                    <option value = "2">小堂</option>
+                </select>
             </div>
-            <div id = "box3">
-                <input type = "button" class = "submit" id = "button" value = "新增課程選項" >
-            </div>
+            <br>
+            <button type = "button" class = "btn btn-outline-light" id = "submit">新增課程選項</button>
+            <ul class = "list-group">
+            </ul>
         </div>
-        <br></br>
-        <div id = "d1"></div>
+        <div class = "col-sm-6 ">
+        </div>
     </body>
     <script src = "main.js"></script>
+    <script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity = "sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin = "anonymous"></script>
 </html>
