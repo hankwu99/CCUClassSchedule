@@ -3,39 +3,260 @@
     <head>
         <meta charset = "utf-8"></meta>
         <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+        <meta name = "description" content = "專屬於中正大學學生的排課系統——鳳梨課表">
         <title>CCU Class Schedule</title>
+        <link rel = "stylesheet" type = "text/css" href = "style.css">
         <link href = "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel = "stylesheet" integrity=  "sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin = "anonymous">
     </head>
 
-    <body class = "p-3 mb-2 bg-dark text-white ">
-        <ul class = "nav nav-pills justify-content-end">
-            <li class = "nav-item">
-                <a class = "navbar-brand" href = "#">CCU 鳳梨課表</a>
-            </li>
-        </ul>
-        <div class = "col-sm-6">
-            <div class = "alert alert-dark" role = "alert">
-                本網站由基礎Bootstrap框架建構而成，為資工系大一學生專題作業。<br>
-                目前將致力於改善中正學生排課使用服務。
+    <body>
+        <nav class = "navbar navbar-light navbar-expand-lg" style = "background-color: rgb(226, 223, 194);">
+            <a class = "navbar-brand" href = "#">
+                CCU 鳳梨課表
+            </a>
+            <div class="collapse navbar-collapse" id = "navbarNavAltMarkup">
+                <div class = "navbar-nav">
+                    <a class = "nav-item nav-link" target = "_blank" data-bs-toggle = "modal" data-bs-target = "#about">關於我們</a>
+                    <a class = "nav-item nav-link" target = "_blank" data-bs-toggle = "modal" data-bs-target = "#version">版本資訊</a>
+                </div>
             </div>
-            <div class = "input-group">
-                <span class = "input-group-text" id = "inputGroup-sizing-sm">課程名稱與教室</span>
-                <input type = "text" aria-label = "Course name" class = "form-control" id = "Course name" >
-                <input type = "text" aria-label = "Classroom" class = "form-control" id = "Classroom">
-                <select class = "custom-select" id = "inputGroupSelect">
-                    <option selected>課程類型</option>
-                    <option value = "1">大堂</option>
-                    <option value = "2">小堂</option>
-                </select>
+        </nav>
+
+        <div class = "modal fade" id = "about" tabindex = "-1" aria-labelledby = "ModalLabel" aria-hidden = "true">
+            <div class = "modal-dialog">
+                <div class = "modal-content">
+                    <div class = "modal-header">
+                        <h5 class = "modal-title" id = "ModalLabel">關於我們</h5>
+                        <button type = "button" class = "btn-close" data-bs-dismiss = "modal" aria-label = "Close"></button>
+                    </div>
+                    <div class = "modal-body">
+                        鳳梨課表<br>
+                        中正大學資工一 D1stance 期末專題
+                    </div>
+                    <div class = "modal-footer">
+                        <button type = "button" class = "btn btn-outline-danger" data-bs-dismiss = "modal">關閉</button>
+                    </div>
+                </div>
             </div>
-            <br>
-            <button type = "button" class = "btn btn-outline-light" id = "submit">新增課程選項</button>
-            <ul class = "list-group">
-            </ul>
         </div>
-        <div class = "col-sm-6 ">
+
+        <div class = "modal fade" id = "version" tabindex = "-1" aria-labelledby = "ModalLabel" aria-hidden = "true">
+            <div class = "modal-dialog">
+                <div class = "modal-content">
+                    <div class = "modal-header">
+                        <h5 class = "modal-title" id = "ModalLabel">版本資訊</h5>
+                        <button type = "button" class = "btn-close" data-bs-dismiss = "modal" aria-label = "Close"></button>
+                    </div>
+                    <div class = "modal-body">
+                        v alpha 0.0.1 新增課程功能建置完畢<br>
+                        v alpha 0.0.2 UI調整，加入Bootstrap框架使用<br>
+                        v alpha 0.0.3 課表輸出與建置功能完成
+                    </div>
+                    <div class = "modal-footer">
+                        <button type = "button" class = "btn btn-outline-danger" data-bs-dismiss = "modal">關閉</button>
+                    </div>
+                </div>
+            </div>
         </div>
+        <br>
+        <div id = "container">
+            <div class = "col-6">
+                <div class = "input-group input-group-sm">
+                    <span class = "input-group-text">課程資訊</span>
+                    <input type = "text" aria-label = "Course name" class = "form-control" id = "Course name" placeholder = "課程名稱">
+                    <input type = "text" aria-label = "Classroom" class = "form-control" id = "Classroom" placeholder = "課程教室">
+                    <select class = "custom-select" id = "Select1">
+                        <option selected>星期</option>
+                        <option value = "1">一</option>
+                        <option value = "2">二</option>
+                        <option value = "3">三</option>
+                        <option value = "4">四</option>
+                        <option value = "5">五</option>
+                    </select>
+                    <select class = "custom-select" id = "Select2">
+                        <option selected>開始節次</option>
+                        <option value = "1">1</option>
+                        <option value = "2">2</option>
+                        <option value = "3">3</option>
+                        <option value = "4">4</option>
+                        <option value = "5">5</option>
+                        <option value = "6">6</option>
+                        <option value = "7">7</option>
+                        <option value = "8">8</option>
+                        <option value = "9">9</option>
+                        <option value = "10">10</option>
+                        <option value = "11">11</option>
+                        <option value = "12">12</option>
+                        <option value = "13">13</option>
+                        <option value = "14">14</option>
+                        <option value = "15">15</option>
+                        <option value = "A">A</option>
+                        <option value = "B">B</option>
+                        <option value = "C">C</option>
+                        <option value = "D">D</option>
+                        <option value = "E">E</option>
+                        <option value = "F">F</option>
+                        <option value = "G">G</option>
+                        <option value = "H">H</option>
+                        <option value = "I">I</option>
+                        <option value = "J">J</option>
+                    </select>
+                    <select class = "custom-select" id = "Select3">
+                        <option selected>結束節次</option>
+                        <option value = "1">1</option>
+                        <option value = "2">2</option>
+                        <option value = "3">3</option>
+                        <option value = "4">4</option>
+                        <option value = "5">5</option>
+                        <option value = "6">6</option>
+                        <option value = "7">7</option>
+                        <option value = "8">8</option>
+                        <option value = "9">9</option>
+                        <option value = "10">10</option>
+                        <option value = "11">11</option>
+                        <option value = "12">12</option>
+                        <option value = "13">13</option>
+                        <option value = "14">14</option>
+                        <option value = "15">15</option>
+                        <option value = "A">A</option>
+                        <option value = "B">B</option>
+                        <option value = "C">C</option>
+                        <option value = "D">D</option>
+                        <option value = "E">E</option>
+                        <option value = "F">F</option>
+                        <option value = "G">G</option>
+                        <option value = "H">H</option>
+                        <option value = "I">I</option>
+                        <option value = "J">J</option>
+                    </select>
+                
+                </div>
+                <div id = "buttongroup">
+                    <br>
+                    <button type = "button" class = "btn btn-outline-dark " id = "submit">新增課程選項</button>
+                    <button type = "button" class = "btn btn-outline-info" id = "setup">課表更新</button>
+                    <button type = "button" class = "btn btn-outline-success" id = "print">輸出圖片</button>
+                    <br>
+                </div>
+                <ul class = "list-group">
+                </ul>
+            </div>
+            <div class = "container table-div g-col-6">
+                <table id = "curriculum" class = "table">
+                    <tbody>
+                        <tr>
+                            <th>時間 / 星期</th>
+                            <th>星期一</th>
+                            <th>星期二</th>
+                            <th>星期三</th>
+                            <th>星期四</th>
+                            <th>星期五</th>
+                        </tr>
+                        <tr>
+                            <td>07:00</td>
+                        </tr>
+                        <tr>
+                            <td>07:00</td>
+                        </tr>
+                        <tr>
+                            <td>08:00</td>
+                        </tr>
+                        <tr>
+                            <td>08:00</td>
+                        </tr>
+                        <tr>
+                            <td>09:00</td>
+                        </tr>
+                        <tr>
+                            <td>09:00</td>
+                        </tr>
+                        <tr>
+                            <td>10:00</td>
+                        </tr>
+                        <tr>
+                            <td>10:00</td>
+                        </tr>
+                        <tr>
+                            <td>11:00</td>
+                        </tr>
+                        <tr>
+                            <td>11:00</td>
+                        </tr>
+                        <tr>
+                            <td>12:00</td>
+                        </tr>
+                        <tr>
+                            <td>12:00</td>
+                        </tr>
+                        <tr>
+                            <td>13:00</td>
+                        </tr>
+                        <tr>
+                            <td>13:00</td>
+                        </tr>
+                        <tr>
+                            <td>14:00</td>
+                        </tr>
+                        <tr>
+                            <td>14:00</td>
+                        </tr>
+                        <tr>
+                            <td>15:00</td>
+                        </tr>
+                        <tr>
+                            <td>15:00</td>
+                        </tr>
+                        <tr>
+                            <td>16:00</td>
+                        </tr>
+                        <tr>
+                            <td>16:00</td>
+                        </tr>
+                        <tr>
+                            <td>17:00</td>
+                        </tr>
+                        <tr>
+                            <td>17:00</td>
+                        </tr>
+                        <tr>
+                            <td>18:00</td>
+                        </tr>
+                        <tr>
+                            <td>18:00</td>
+                        </tr>
+                        <tr>
+                            <td>19:00</td>
+                        </tr>
+                        <tr>
+                            <td>19:00</td>
+                        </tr>
+                        <tr>
+                            <td>20:00</td>
+                        </tr>
+                        <tr>
+                            <td>20:00</td>
+                        </tr>
+                        <tr>
+                            <td>21:00</td>
+                        </tr>
+                        <tr>
+                            <td>21:00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <footer>
+            <div class = "text-center p-4 text-black-50" style = "background-color: rgb(226, 223, 194);">
+                © 2021 Copyright: All right preserved.
+            </div>
+        </footer>    
     </body>
-    <script src = "main.js"></script>
+    <script src = "https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity = "sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin = "anonymous"></script>
+    <script src = "./main.js"></script>
+    <script src = "./jquery.rowspanizer.js"></script>
+    <script src = "./jquery.rowspanizer.min.js"></script>
     <script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity = "sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin = "anonymous"></script>
+    <script src = "https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </html>
