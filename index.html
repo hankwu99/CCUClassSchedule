@@ -7,26 +7,27 @@
         <title>CCU Class Schedule</title>
         <link rel = "stylesheet" type = "text/css" href = "style.css">
         <link href = "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel = "stylesheet" integrity=  "sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin = "anonymous">
+        <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
 
     <body>
-        <nav class = "navbar navbar-light navbar-expand-lg" style = "background-color: rgb(226, 223, 194);">
-            <a class = "navbar-brand" href = "#">
-                CCU 鳳梨課表
-            </a>
-            <div class="collapse navbar-collapse" id = "navbarNavAltMarkup">
-                <div class = "navbar-nav">
-                    <a class = "nav-item nav-link" target = "_blank" data-bs-toggle = "modal" data-bs-target = "#about">關於我們</a>
-                    <a class = "nav-item nav-link" target = "_blank" data-bs-toggle = "modal" data-bs-target = "#version">版本資訊</a>
-                </div>
-            </div>
-        </nav>
+        <ul class = "nav justify-content-end" id = "nav">
+            <li class = "nav-item">
+                <a class = "nav-link" target = "_blank" data-bs-toggle = "modal" data-bs-target = "#about">關於</a>
+            </li>
+            <li class = "nav-item">
+                <a class = "nav-link" target = "_blank" data-bs-toggle = "modal" data-bs-target = "#version">版本資訊</a>
+            </li>
+            <li class = "nav-item">
+                <a class = "nav-link disabled">CCU 鳳梨課表</a>
+            </li>
+          </ul>
 
         <div class = "modal fade" id = "about" tabindex = "-1" aria-labelledby = "ModalLabel" aria-hidden = "true">
             <div class = "modal-dialog">
                 <div class = "modal-content">
                     <div class = "modal-header">
-                        <h5 class = "modal-title" id = "ModalLabel">關於我們</h5>
+                        <h5 class = "modal-title" id = "ModalLabel">關於</h5>
                         <button type = "button" class = "btn-close" data-bs-dismiss = "modal" aria-label = "Close"></button>
                     </div>
                     <div class = "modal-body">
@@ -60,7 +61,7 @@
         </div>
         <br>
         <div id = "container">
-            <div class = "col-6">
+            <div class = "inputarea">
                 <div class = "input-group input-group-sm">
                     <span class = "input-group-text">課程資訊</span>
                     <input type = "text" aria-label = "Course name" class = "form-control" id = "Course name" placeholder = "課程名稱">
@@ -129,134 +130,33 @@
                         <option value = "I">I</option>
                         <option value = "J">J</option>
                     </select>
-                
+                    <button type = "button" id = "submit"><b>+</b></button>
                 </div>
                 <div id = "buttongroup">
                     <br>
-                    <button type = "button" class = "btn btn-outline-dark " id = "submit">新增課程選項</button>
-                    <button type = "button" class = "btn btn-outline-info" id = "setup">課表更新</button>
-                    <button type = "button" class = "btn btn-outline-success" id = "print">輸出圖片</button>
-                    <br>
+                    <button type = "button" id = "setup">產生課表</button>
+                    <button type = "button" id = "print">輸出圖片</button>
                 </div>
-                <ul class = "list-group">
-                </ul>
+                <br>
+                <div class = "coursesGroup">
+                </div>
             </div>
-            <div class = "container table-div g-col-6">
+            <div class = "container table-div g-col-6" >
                 <table id = "curriculum" class = "table">
-                    <tbody>
-                        <tr>
-                            <th>時間 / 星期</th>
-                            <th>星期一</th>
-                            <th>星期二</th>
-                            <th>星期三</th>
-                            <th>星期四</th>
-                            <th>星期五</th>
-                        </tr>
-                        <tr>
-                            <td>07:00</td>
-                        </tr>
-                        <tr>
-                            <td>07:00</td>
-                        </tr>
-                        <tr>
-                            <td>08:00</td>
-                        </tr>
-                        <tr>
-                            <td>08:00</td>
-                        </tr>
-                        <tr>
-                            <td>09:00</td>
-                        </tr>
-                        <tr>
-                            <td>09:00</td>
-                        </tr>
-                        <tr>
-                            <td>10:00</td>
-                        </tr>
-                        <tr>
-                            <td>10:00</td>
-                        </tr>
-                        <tr>
-                            <td>11:00</td>
-                        </tr>
-                        <tr>
-                            <td>11:00</td>
-                        </tr>
-                        <tr>
-                            <td>12:00</td>
-                        </tr>
-                        <tr>
-                            <td>12:00</td>
-                        </tr>
-                        <tr>
-                            <td>13:00</td>
-                        </tr>
-                        <tr>
-                            <td>13:00</td>
-                        </tr>
-                        <tr>
-                            <td>14:00</td>
-                        </tr>
-                        <tr>
-                            <td>14:00</td>
-                        </tr>
-                        <tr>
-                            <td>15:00</td>
-                        </tr>
-                        <tr>
-                            <td>15:00</td>
-                        </tr>
-                        <tr>
-                            <td>16:00</td>
-                        </tr>
-                        <tr>
-                            <td>16:00</td>
-                        </tr>
-                        <tr>
-                            <td>17:00</td>
-                        </tr>
-                        <tr>
-                            <td>17:00</td>
-                        </tr>
-                        <tr>
-                            <td>18:00</td>
-                        </tr>
-                        <tr>
-                            <td>18:00</td>
-                        </tr>
-                        <tr>
-                            <td>19:00</td>
-                        </tr>
-                        <tr>
-                            <td>19:00</td>
-                        </tr>
-                        <tr>
-                            <td>20:00</td>
-                        </tr>
-                        <tr>
-                            <td>20:00</td>
-                        </tr>
-                        <tr>
-                            <td>21:00</td>
-                        </tr>
-                        <tr>
-                            <td>21:00</td>
-                        </tr>
-                    </tbody>
                 </table>
             </div>
         </div>
         <footer>
             <div class = "text-center p-4 text-black-50" style = "background-color: rgb(226, 223, 194);">
-                © 2021 Copyright: All right preserved.
+                © Developed By Pineapple Team
             </div>
         </footer>    
     </body>
     <script src = "https://code.jquery.com/jquery-3.6.0.min.js"
         integrity = "sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin = "anonymous"></script>
-    <script src = "./main.js"></script>
     <script src = "./jquery.rowspanizer.js"></script>
     <script src = "./jquery.rowspanizer.min.js"></script>
     <script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity = "sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin = "anonymous"></script>
     <script src = "https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src = "./main.js"></script>
 </html>

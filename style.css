@@ -1,17 +1,94 @@
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap");
 
+.input-group.input-group-sm, .input-group-text
+{
+    border: 1.5px solid rgb(175, 174, 130);
+}
+#container
+{
+    min-height: 425px;
+}
+#nav
+{
+    background-color: rgb(226, 223, 194);
+    padding-left: 1%;
+    width: 100%;
+}
+a.nav-link
+{
+    color: black;
+}
+.inputarea
+{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+#submit
+{
+    transition-duration: 0.4s;
+    border-left: 1.5px solid rgb(175, 174, 130);;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    width: 30px;
+    background-color: white; 
+    color: rgb(175, 174, 130);
+}
+
+#submit:hover    
+{
+    background-color: rgb(175, 174, 130);
+    color: white;
+}
+
+#print, #setup
+{
+    transition-duration: 0.4s;
+    border-radius: 12px;
+    border: 1.5px solid rgb(175, 174, 130);
+    width: 100px;
+    height: 35px;
+    background-color: white; 
+    color: rgb(175, 174, 130);
+}
+
+#print:hover, #setup:hover
+{
+    background-color: rgb(175, 174, 130);
+    color: white;
+}
+
 #buttongroup
 {
     text-align: right;
 }
 
+.courselist
+{
+    border-radius: 12px;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    border-collapse: separate;
+    margin-left: 15%;
+    margin-bottom: 0.5%;
+    text-align: center;
+    background: rgb(176, 233, 179);
+    width: 70%;
+}
+.btn-delete
+{
+    background-color: transparent;
+    border: none;
+    margin-left: 10px;
+    color: rgb(100, 100, 100);
+}
 #curriculum
 {
     opacity: 0.8;
     padding: 2px;
     border-spacing: 4px;
     border-radius: 5px;
-    background-color: rgb(226, 223, 194);;
+    background-color: rgb(226, 223, 194);
     margin: auto;
     border-collapse: separate;
     margin-bottom: 30px;
@@ -27,7 +104,7 @@
     border-bottom: solid 1px;
     text-align: center;
 }
-#curriculum tr td:first-child
+#curriculum tr td.time-td
 {
     background-color: rgb(175, 174, 130);
 }
@@ -37,11 +114,11 @@
     opacity: 0.9;
     text-align: center;
     vertical-align: middle;
-    width: 140px;
+    width: 150px;
     padding: 3px;
 }
 
 #curriculum tr td.used-td
 {
-    background-color: rgb(121, 190, 125);
+    background-color: rgb(158, 214, 160);
 }
