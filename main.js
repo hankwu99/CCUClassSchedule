@@ -64,11 +64,9 @@ const CLASS_TO_TIME =
     'I': '19:15',
     'J': '20:45'
 }
-
 var courses = []
 var dayCheck = ['一', '二', '三', '四', '五']
 var timeCheck = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
-
 function newCourse()
 {
     let className = document.getElementById("Course name").value;
@@ -128,13 +126,11 @@ function newCourse()
         }
     }
 }
-
 function doRowspan()
 {
     for(let i = 1; i <= 5; ++i)
         $("#curriculum").rowspan(i)
 }
-
 async function resetTable()
 {
     var cloneTable = $("#curriculum").clone()
@@ -142,7 +138,8 @@ async function resetTable()
     cloneTable.html(`
     <tbody>
         <tr>
-            <th>時間 / 星期</th>
+            <th>節次</th>
+            <th>節次</th>
             <th>星期一</th>
             <th>星期二</th>
             <th>星期三</th>
@@ -150,94 +147,125 @@ async function resetTable()
             <th>星期五</th>
         </tr>
         <tr>
-            <td class = "time-td">07:00</td>
+            <td class = "time-td">1<br>07:10</td>
+            <td class = "time-td">A<br>07:15</td>
         </tr>
         <tr>
-            <td class = "time-td">07:00</td>
+            <td class = "time-td">1<br>07:10</td>
+            <td class = "time-td">A<br>07:15</td>
         </tr>
         <tr>
-            <td class = "time-td">08:00</td>
+            <td class = "time-td">2<br>08:10</td>
+            <td class = "time-td">A<br>07:15</td>
         </tr>
         <tr>
-            <td class = "time-td">08:00</td>
+            <td class = "time-td">2<br>08:10</td>
+            <td class = "time-td">B<br>08:45</td>
         </tr>
         <tr>
-            <td class = "time-td">09:00</td>
+            <td class = "time-td">3<br>09:10</td>
+            <td class = "time-td">B<br>08:45</td>
         </tr>
         <tr>
-            <td class = "time-td">09:00</td>
+            <td class = "time-td">3<br>09:10</td>
+            <td class = "time-td">B<br>08:45</td>
+        </tr>
+
+        <tr>
+            <td class = "time-td">4<br>10:10</td>
+            <td class = "time-td">C<br>10:15</td>
         </tr>
         <tr>
-            <td class = "time-td">10:00</td>
+            <td class = "time-td">4<br>10:10</td>
+            <td class = "time-td">C<br>10:15</td>
         </tr>
         <tr>
-            <td class = "time-td">10:00</td>
+            <td class = "time-td">5<br>11:10</td>
+            <td class = "time-td">C<br>10:15</td>
         </tr>
         <tr>
-            <td class = "time-td">11:00</td>
+            <td class = "time-td">5<br>11:10</td>
+            <td class = "time-td">D<br>11:45</td>
         </tr>
         <tr>
-            <td class = "time-td">11:00</td>
+            <td class = "time-td">6<br>12:10</td>
+            <td class = "time-td">D<br>11:45</td>
         </tr>
         <tr>
-            <td class = "time-td">12:00</td>
+            <td class = "time-td">6<br>12:10</td>
+            <td class = "time-td">D<br>11:45</td>
+        </tr>
+         <tr>
+            <td class = "time-td">7<br>13:10</td>
+            <td class = "time-td">E<br>07:15</td>
         </tr>
         <tr>
-            <td class = "time-td">12:00</td>
+            <td class = "time-td">7<br>13:10</td>
+            <td class = "time-td">E<br>07:15</td>
         </tr>
         <tr>
-            <td class = "time-td">13:00</td>
+            <td class = "time-td">8<br>14:10</td>
+            <td class = "time-td">E<br>07:15</td>
         </tr>
         <tr>
-            <td class = "time-td">13:00</td>
+            <td class = "time-td">8<br>14:10</td>
+            <td class = "time-td">F<br>08:45</td>
         </tr>
         <tr>
-            <td class = "time-td">14:00</td>
+            <td class = "time-td">9<br>15:10</td>
+            <td class = "time-td">F<br>08:45</td>
         </tr>
         <tr>
-            <td class = "time-td">14:00</td>
+            <td class = "time-td">9<br>15:10</td>
+            <td class = "time-td">F<br>08:45</td>
+        </tr>
+         <tr>
+            <td class = "time-td">10<br>16:10</td>
+            <td class = "time-td">G<br>07:15</td>
         </tr>
         <tr>
-            <td class = "time-td">15:00</td>
+            <td class = "time-td">10<br>16:10</td>
+            <td class = "time-td">G<br>07:15</td>
         </tr>
         <tr>
-            <td class = "time-td">15:00</td>
+            <td class = "time-td">11<br>17:10</td>
+            <td class = "time-td">G<br>07:15</td>
         </tr>
         <tr>
-            <td class = "time-td">16:00</td>
+            <td class = "time-td">11<br>17:10</td>
+            <td class = "time-td">H<br>08:45</td>
         </tr>
         <tr>
-            <td class = "time-td">16:00</td>
+            <td class = "time-td">12<br>18:10</td>
+            <td class = "time-td">H<br>08:45</td>
         </tr>
         <tr>
-            <td class = "time-td">17:00</td>
+            <td class = "time-td">12<br>18:10</td>
+            <td class = "time-td">H<br>08:45</td>
+        </tr>
+         <tr>
+            <td class = "time-td">13<br>19:10</td>
+            <td class = "time-td">I<br>07:15</td>
         </tr>
         <tr>
-            <td class = "time-td">17:00</td>
+            <td class = "time-td">13<br>19:10</td>
+            <td class = "time-td">I<br>07:15</td>
         </tr>
         <tr>
-            <td class = "time-td">18:00</td>
+            <td class = "time-td">14<br>20:10</td>
+            <td class = "time-td">I<br>07:15</td>
         </tr>
         <tr>
-            <td class = "time-td">18:00</td>
+            <td class = "time-td">14<br>20:10</td>
+            <td class = "time-td">J<br>08:45</td>
         </tr>
         <tr>
-            <td class = "time-td">19:00</td>
+            <td class = "time-td">15<br>21:10</td>
+            <td class = "time-td">J<br>08:45</td>
         </tr>
         <tr>
-            <td class = "time-td">19:00</td>
-        </tr>
-        <tr>
-            <td class = "time-td">20:00</td>
-        </tr>
-        <tr>
-            <td class = "time-td">20:00</td>
-        </tr>
-        <tr>
-            <td class = "time-td">21:00</td>
-        </tr>
-        <tr>
-            <td class = "time-td">21:00</td>
+            <td class = "time-td">15<br>21:10</td>
+            <td class = "time-td">J<br>08:45</td>
         </tr>
     </tbody>
     `)
@@ -249,7 +277,6 @@ async function resetTable()
     })
     $("#curriculum").show()
 }
-
 function createCurriculum()
 {
     return new Promise((resolve, reject) => {
@@ -286,7 +313,6 @@ function createCurriculum()
         resolve(1);
     });
 }
-
 function block_capture() 
 {
     html2canvas(document.querySelector("#curriculum")).then(function (canvas)
@@ -299,7 +325,6 @@ function block_capture()
         a.click();
     });
 }
-
 async function getCourse()
 {
     await resetTable()
