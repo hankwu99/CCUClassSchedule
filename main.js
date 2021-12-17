@@ -64,7 +64,6 @@ const CLASS_TO_TIME =
     'I': '19:15',
     'J': '20:45'
 }
-
 var courses = []
 var dayCheck = ['一', '二', '三', '四', '五']
 var timeCheck = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
@@ -302,50 +301,7 @@ async function getCourse()
     document.getElementById("curriculum").style.visibility = "visible"; 
 }
 
-async function init()
-{
-    var storedcourses = JSON.parse(localStorage.courses);
-    var isUsed = new Array(); 
-    for(var i = 0; i < 5; ++i)
-    { 
-        isUsed[i] = new Array();
-        for(var j = 0; j < 30; ++j)
-            isUsed[i][j] = false;
-    }
-    if(storedcourses.length !== 0)
-    {
-        let list = $(".coursesGroup").get();
-        
-        for(var index = 0; index < storedcourses.length; index++)
-        {
-            let className = storedcourses[index]["課程名稱"]
-            let courseTime = storedcourses[index]["上課時間"]
-            let classLocation = storedcourses[index]["上課教室"]
-            let startClass = 0
-            let endClass = 0
-            $(list).append(`<div class = "courselist">【課程名稱】[${className}] - 【教室位置】[${classLocation}] - 【課程時間】[${courseTime["星期"]} ${courseTime["開始節次"]} ~ ${courseTime["結束節次"]}]<button class = "btn-delete">✖</button></div>`)
-            if(courseTime["開始節次"] >= 'A' && courseTime["開始節次"] <= 'J')
-            {
-                startClass = 1 + (CLASS_MAP[courseTime["開始節次"]] - 1) * 3
-                endClass = 3 + (CLASS_MAP[courseTime["結束節次"]] - 1) * 3
-            }
-            else 
-            {
-                startClass = 1 + (CLASS_MAP[courseTime["開始節次"]] - 1) * 2
-                endClass = CLASS_MAP[courseTime["結束節次"]] * 2 
-            }
-            for(var i = startClass - 1; i < endClass; ++i)
-                isUsed[CHINESE_WORD_TO_NUMBER[courseTime["星期"]] - 1][i] = true;
-        }
-        await resetTable()
-        createCurriculum().then($("#curriculum").rowspanizer())
-        $("#curriculum").show()
-        document.getElementById("curriculum").style.visibility = "visible";
-    }
-    else
-        document.getElementById("curriculum").style.visibility = "hidden";
-    localStorage.used = JSON.stringify(isUsed);
-}
+
 
 var submit = document.getElementById("submit");
 var setup = document.getElementById("setup");
@@ -353,6 +309,61 @@ var print = document.getElementById("print");
 submit.onclick = newCourse;
 setup.onclick = getCourse;
 print.onclick = block_capture;
+
+async function init()
+{
+    var isUsed = new Array(); 
+    for(var i = 0; i < 5; ++i)
+    { 
+        isUsed[i] = new Array();
+        for(var j = 0; j < 30; ++j)
+            isUsed[i][j] = false;
+    }
+    if(localStorage.courses !== undefined)
+    {
+        var storedcourses = JSON.parse(localStorage.courses);
+        if(storedcourses.length !== 0)
+        {
+            let list = $(".coursesGroup").get();
+            
+            for(var index = 0; index < storedcourses.length; index++)
+            {
+                let className = storedcourses[index]["課程名稱"]
+                let courseTime = storedcourses[index]["上課時間"]
+                let classLocation = storedcourses[index]["上課教室"]
+                let startClass = 0
+                let endClass = 0
+                $(list).append(`<div class = "courselist">【課程名稱】[${className}] - 【教室位置】[${classLocation}] - 【課程時間】[${courseTime["星期"]} ${courseTime["開始節次"]} ~ ${courseTime["結束節次"]}]<button class = "btn-delete">✖</button></div>`)
+                if(courseTime["開始節次"] >= 'A' && courseTime["開始節次"] <= 'J')
+                {
+                    startClass = 1 + (CLASS_MAP[courseTime["開始節次"]] - 1) * 3
+                    endClass = 3 + (CLASS_MAP[courseTime["結束節次"]] - 1) * 3
+                }
+                else 
+                {
+                    startClass = 1 + (CLASS_MAP[courseTime["開始節次"]] - 1) * 2
+                    endClass = CLASS_MAP[courseTime["結束節次"]] * 2 
+                }
+                for(var i = startClass - 1; i < endClass; ++i)
+                    isUsed[CHINESE_WORD_TO_NUMBER[courseTime["星期"]] - 1][i] = true;
+            }
+            await resetTable()
+            createCurriculum().then($("#curriculum").rowspanizer())
+            $("#curriculum").show()
+            document.getElementById("curriculum").style.visibility = "visible";
+        }
+        else
+            document.getElementById("curriculum").style.visibility = "hidden";
+        localStorage.used = JSON.stringify(isUsed);
+    }
+    else
+    {
+        localStorage.used = JSON.stringify(isUsed);
+        localStorage.courses = JSON.stringify(courses);
+        document.getElementById("curriculum").style.visibility = "hidden";
+    }
+}
+
 init();
 
 document.querySelector('.coursesGroup').addEventListener('click', function(event)

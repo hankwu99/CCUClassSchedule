@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap");
+
 .input-group.input-group-sm, .input-group-text
 {
     border: 1.5px solid rgb(175, 174, 130);
 }
 #container
 {
-    min-height: 425px;
+    min-height: 440px;
 }
 #nav
 {
