@@ -64,9 +64,11 @@ const CLASS_TO_TIME =
     'I': '19:15',
     'J': '20:45'
 }
+
 var courses = []
 var dayCheck = ['一', '二', '三', '四', '五']
 var timeCheck = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+
 function newCourse()
 {
     let className = document.getElementById("Course name").value;
@@ -126,11 +128,13 @@ function newCourse()
         }
     }
 }
+
 function doRowspan()
 {
     for(let i = 1; i <= 5; ++i)
         $("#curriculum").rowspan(i)
 }
+
 async function resetTable()
 {
     var cloneTable = $("#curriculum").clone()
@@ -245,6 +249,7 @@ async function resetTable()
     })
     $("#curriculum").show()
 }
+
 function createCurriculum()
 {
     return new Promise((resolve, reject) => {
@@ -281,6 +286,7 @@ function createCurriculum()
         resolve(1);
     });
 }
+
 function block_capture() 
 {
     html2canvas(document.querySelector("#curriculum")).then(function (canvas)
@@ -293,6 +299,7 @@ function block_capture()
         a.click();
     });
 }
+
 async function getCourse()
 {
     await resetTable()
@@ -300,8 +307,6 @@ async function getCourse()
     $("#curriculum").show()
     document.getElementById("curriculum").style.visibility = "visible"; 
 }
-
-
 
 var submit = document.getElementById("submit");
 var setup = document.getElementById("setup");
