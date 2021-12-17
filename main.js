@@ -5,6 +5,7 @@ const CHINESE_WORD_TO_NUMBER =
     '三': 3,
     '四': 4,
     '五': 5,
+    '六': 6
 }
 
 const CLASS_MAP =
@@ -65,8 +66,9 @@ const CLASS_TO_TIME =
     'J': '20:45'
 }
 var courses = []
-var dayCheck = ['一', '二', '三', '四', '五']
+var dayCheck = ['一', '二', '三', '四', '五', '六']
 var timeCheck = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+
 function newCourse()
 {
     let className = document.getElementById("Course name").value;
@@ -126,11 +128,6 @@ function newCourse()
         }
     }
 }
-function doRowspan()
-{
-    for(let i = 1; i <= 5; ++i)
-        $("#curriculum").rowspan(i)
-}
 async function resetTable()
 {
     var cloneTable = $("#curriculum").clone()
@@ -138,141 +135,171 @@ async function resetTable()
     cloneTable.html(`
     <tbody>
         <tr>
-            <th>節次</th>
-            <th>節次</th>
+            <th> </th>
+            <th colspan = "2">節次</th>
             <th>星期一</th>
             <th>星期二</th>
             <th>星期三</th>
             <th>星期四</th>
             <th>星期五</th>
+            <th>星期六</th>
         </tr>
         <tr>
+            <td>⠀</td>
             <td class = "time-td">1<br>07:10</td>
             <td class = "time-td">A<br>07:15</td>
         </tr>
         <tr>
+            <td>⠀⠀</td>
             <td class = "time-td">1<br>07:10</td>
             <td class = "time-td">A<br>07:15</td>
         </tr>
         <tr>
+            <td>⠀</td>
             <td class = "time-td">2<br>08:10</td>
             <td class = "time-td">A<br>07:15</td>
         </tr>
         <tr>
+            <td>⠀⠀</td>
             <td class = "time-td">2<br>08:10</td>
             <td class = "time-td">B<br>08:45</td>
         </tr>
         <tr>
+            <td>⠀</td>
             <td class = "time-td">3<br>09:10</td>
             <td class = "time-td">B<br>08:45</td>
         </tr>
         <tr>
+            <td>⠀⠀</td>
             <td class = "time-td">3<br>09:10</td>
             <td class = "time-td">B<br>08:45</td>
         </tr>
-
         <tr>
+            <td>⠀</td>
             <td class = "time-td">4<br>10:10</td>
             <td class = "time-td">C<br>10:15</td>
         </tr>
         <tr>
+            <td>⠀⠀</td>
             <td class = "time-td">4<br>10:10</td>
             <td class = "time-td">C<br>10:15</td>
         </tr>
         <tr>
+            <td>⠀</td>
             <td class = "time-td">5<br>11:10</td>
             <td class = "time-td">C<br>10:15</td>
         </tr>
         <tr>
+            <td>⠀⠀</td>
             <td class = "time-td">5<br>11:10</td>
             <td class = "time-td">D<br>11:45</td>
         </tr>
         <tr>
+            <td>⠀</td>
             <td class = "time-td">6<br>12:10</td>
             <td class = "time-td">D<br>11:45</td>
         </tr>
         <tr>
+            <td>⠀⠀</td>
             <td class = "time-td">6<br>12:10</td>
             <td class = "time-td">D<br>11:45</td>
         </tr>
-         <tr>
+        <tr>
+            <td>⠀</td>
             <td class = "time-td">7<br>13:10</td>
-            <td class = "time-td">E<br>07:15</td>
+            <td class = "time-td">E<br>13:15</td>
         </tr>
         <tr>
+            <td>⠀⠀</td>
             <td class = "time-td">7<br>13:10</td>
-            <td class = "time-td">E<br>07:15</td>
+            <td class = "time-td">E<br>13:15</td>
         </tr>
         <tr>
+            <td>⠀</td>
             <td class = "time-td">8<br>14:10</td>
-            <td class = "time-td">E<br>07:15</td>
+            <td class = "time-td">E<br>13:15</td>
         </tr>
         <tr>
+            <td>⠀⠀</td>
             <td class = "time-td">8<br>14:10</td>
-            <td class = "time-td">F<br>08:45</td>
+            <td class = "time-td">F<br>14:45</td>
         </tr>
         <tr>
+            <td>⠀</td>
             <td class = "time-td">9<br>15:10</td>
-            <td class = "time-td">F<br>08:45</td>
+            <td class = "time-td">F<br>14:45</td>
         </tr>
         <tr>
+            <td>⠀⠀</td>
             <td class = "time-td">9<br>15:10</td>
-            <td class = "time-td">F<br>08:45</td>
+            <td class = "time-td">F<br>14:45</td>
         </tr>
-         <tr>
+        <tr>
+            <td>⠀</td>
             <td class = "time-td">10<br>16:10</td>
-            <td class = "time-td">G<br>07:15</td>
+            <td class = "time-td">G<br>16:15</td>
         </tr>
         <tr>
+            <td>⠀⠀</td>
             <td class = "time-td">10<br>16:10</td>
-            <td class = "time-td">G<br>07:15</td>
+            <td class = "time-td">G<br>16:15</td>
         </tr>
         <tr>
+            <td>⠀</td>
             <td class = "time-td">11<br>17:10</td>
-            <td class = "time-td">G<br>07:15</td>
+            <td class = "time-td">G<br>16:15</td>
         </tr>
         <tr>
+            <td>⠀⠀</td>
             <td class = "time-td">11<br>17:10</td>
-            <td class = "time-td">H<br>08:45</td>
+            <td class = "time-td">H<br>17:45</td>
         </tr>
         <tr>
+            <td>⠀</td>
             <td class = "time-td">12<br>18:10</td>
-            <td class = "time-td">H<br>08:45</td>
+            <td class = "time-td">H<br>17:45</td>
         </tr>
         <tr>
+            <td>⠀⠀</td>
             <td class = "time-td">12<br>18:10</td>
-            <td class = "time-td">H<br>08:45</td>
+            <td class = "time-td">H<br>17:45</td>
         </tr>
-         <tr>
+        <tr>
+            <td>⠀</td>
             <td class = "time-td">13<br>19:10</td>
-            <td class = "time-td">I<br>07:15</td>
+            <td class = "time-td">I<br>19:15</td>
         </tr>
         <tr>
+            <td>⠀⠀</td>
             <td class = "time-td">13<br>19:10</td>
-            <td class = "time-td">I<br>07:15</td>
+            <td class = "time-td">I<br>19:15</td>
         </tr>
         <tr>
+            <td>⠀</td>
             <td class = "time-td">14<br>20:10</td>
-            <td class = "time-td">I<br>07:15</td>
+            <td class = "time-td">I<br>19:15</td>
         </tr>
         <tr>
+            <td>⠀⠀</td>
             <td class = "time-td">14<br>20:10</td>
-            <td class = "time-td">J<br>08:45</td>
+            <td class = "time-td">J<br>20:45</td>
         </tr>
         <tr>
+            <td>⠀</td>
             <td class = "time-td">15<br>21:10</td>
-            <td class = "time-td">J<br>08:45</td>
+            <td class = "time-td">J<br>20:45</td>
         </tr>
         <tr>
+            <td>⠀⠀</td>
             <td class = "time-td">15<br>21:10</td>
-            <td class = "time-td">J<br>08:45</td>
+            <td class = "time-td">J<br>20:45</td>
         </tr>
     </tbody>
     `)
     $(".table-div").append(cloneTable)
     let rows = $("#curriculum > tbody > tr").get().slice(1)
     rows.forEach(row => {
-        for(let i = 0; i < 5; ++i)
+        for(let i = 0; i < 6; ++i)
             $(row).find("td:last").after("<td></td>")
     })
     $("#curriculum").show()
@@ -304,10 +331,10 @@ function createCurriculum()
             for(let i = startClass; i <= endClass; ++i)
             {
                 tds = $(rows[i]).children('td')
-                $(tds[day]).append(`<div class = "course-time">${startTime}</div>`)
-                $(tds[day]).append(`<div class = "course-name" style = "font-weight: bold;">${courseName}</div>`)
-                $(tds[day]).append(`<div class = "course-classroom">${courseClassroom}</div>`)
-                $(tds[day]).addClass('used-td')
+                $(tds[day + 2]).append(`<div class = "course-time">${startTime}</div>`)
+                $(tds[day + 2]).append(`<div class = "course-name" style = "font-weight: bold;">${courseName}</div>`)
+                $(tds[day + 2]).append(`<div class = "course-classroom">${courseClassroom}</div>`)
+                $(tds[day + 2]).addClass('used-td')
             }
         }
         resolve(1);
@@ -319,9 +346,9 @@ function block_capture()
     {
         a = document.createElement("a");
         a.href = canvas
-            .toDataURL("image/jpeg", 0.92)
-            .replace("image/jpeg", "image/octet-stream");
-        a.download = "image.jpg";
+            .toDataURL("curriculum/jpeg", 0.7)
+            .replace("curriculum/jpeg", "curriculum/octet-stream");
+        a.download = "curriculum.jpg";
         a.click();
     });
 }
@@ -343,7 +370,7 @@ print.onclick = block_capture;
 async function init()
 {
     var isUsed = new Array(); 
-    for(var i = 0; i < 5; ++i)
+    for(var i = 0; i < 6; ++i)
     { 
         isUsed[i] = new Array();
         for(var j = 0; j < 30; ++j)
