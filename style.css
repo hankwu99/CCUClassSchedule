@@ -16,12 +16,12 @@
 }
 a.nav-link
 {
-    color: black;
+    color: rgb(78, 78, 78);
 }
 .inputarea
 {
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 #submit
 {
@@ -44,7 +44,7 @@ a.nav-link
 #print, #setup
 {
     transition-duration: 0.4s;
-    border-radius: 12px;
+    border-radius: 15px;
     border: 1.5px solid rgb(175, 174, 130);
     width: 100px;
     height: 35px;
@@ -60,12 +60,12 @@ a.nav-link
 
 #buttongroup
 {
-    text-align: right;
+    text-align: center;
 }
 
 .courselist
 {
-    border-radius: 12px;
+    border-radius: 15px;
     padding-top: 0.5%;
     padding-bottom: 0.5%;
     border-collapse: separate;
@@ -84,16 +84,15 @@ a.nav-link
 }
 #curriculum
 {
-    opacity: 0.8;
-    padding: 2px;
-    border-spacing: 4px;
+    opacity: 0.9;
+    padding: 5px;
+    border-spacing: 2px;
     border-radius: 5px;
     background-color: rgb(226, 223, 194);
-    margin: auto;
     border-collapse: separate;
-    margin-bottom: 30px;
-    margin-top: 30px;
-    width: 90%;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
 }
 #curriculum caption
 {
@@ -107,19 +106,25 @@ a.nav-link
 #curriculum tr td.time-td
 {
     background-color: rgb(175, 174, 130);
+    width: 55px;
+    font-size: 13px;
+}
+#curriculum tr td:first-child
+{
+    width: 5px;
 }
 #curriculum tr td
 {
-    border-radius: 10px;
+    border-radius: 3px;
     opacity: 0.9;
     text-align: center;
     vertical-align: middle;
     width: 150px;
-    padding: 3px;
-    min-height: 30000px;
+    padding: 0;
+    
 }
 
 #curriculum tr td.used-td
 {
-    background-color: rgb(180, 187, 153);
+    background-color: rgb(158, 214, 160);
 }
