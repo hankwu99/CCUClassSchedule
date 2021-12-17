@@ -4,25 +4,30 @@
 {
     border: 1.5px solid rgb(175, 174, 130);
 }
+
 #container
 {
     min-height: 440px;
 }
+
 #nav
 {
     background-color: rgb(226, 223, 194);
     padding-left: 1%;
     width: 100%;
 }
+
 a.nav-link
 {
     color: black;
 }
+
 .inputarea
 {
     margin-left: 10%;
     margin-right: 10%;
 }
+
 #submit
 {
     transition-duration: 0.4s;
@@ -75,6 +80,7 @@ a.nav-link
     background: rgb(176, 233, 179);
     width: 70%;
 }
+
 .btn-delete
 {
     background-color: transparent;
@@ -82,6 +88,7 @@ a.nav-link
     margin-left: 10px;
     color: rgb(100, 100, 100);
 }
+
 #curriculum
 {
     opacity: 0.8;
@@ -95,19 +102,23 @@ a.nav-link
     margin-top: 30px;
     width: 70%;
 }
+
 #curriculum caption
 {
     text-align: center;
 }
+
 #curriculum th
 {
     border-bottom: solid 1px;
     text-align: center;
 }
+
 #curriculum tr td.time-td
 {
     background-color: rgb(175, 174, 130);
 }
+
 #curriculum tr td
 {
     border-radius: 5px;
