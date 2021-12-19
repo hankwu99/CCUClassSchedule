@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8"></meta>
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+        <meta name = "description" content = "專屬於中正大學學生的排課系統——鳳梨課表">
+        <title>CCU Class Schedule</title>
+        <link rel = "stylesheet" type = "text/css" href = "style.css">
+        <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href = "https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel = "stylesheet" integrity = "sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin = "anonymous">        <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+    <body>
+        <ul class = "nav justify-content-end" id = "nav">
+            <li class = "nav-item">
+                <a class = "nav-link" href = "./index.html">回首頁</a>
+            </li>
+            <li class = "nav-item">
+                <a class = "nav-link disabled">CCU 鳳梨課表</a>
+            </li>
+          </ul>
+        <br>
+        <div id = "aboutUs">
+            <div id = "title">關於我們</div>
+            <div id = "message">我們是現在就讀於中正大學的學生，為了改善中正學生的排課選課體驗而建立了鳳梨課表團隊，<br>希望能透過我們所學和自身經驗打造一個更加舒適且符合中正學生所需的服務。</div>
+            <div id = "title">版本更新紀錄</div>
+            <div id = "message">v 0.0.1 新增課程功能建置完畢<br>
+                v 0.0.2 UI調整，加入Bootstrap框架使用<br>
+                v 0.0.3 課表輸出與建置功能完成，引用JQuery rowspanize開源程式碼。<br>
+                v 0.0.4 課程衝堂提醒、課表UI調整。<br>
+                v 0.0.5 課表顯示上課時間、名稱、地點。<br>
+                v 0.0.6 加入刪除課程功能<br>
+                v 0.0.7 加入localstorage功能<br>
+                v 0.0.8 UI優化，新增關於介面
+            </div>
+            <div id = "title">團隊成員</div>
+            <div class = "card mb-3" style = "max-width: 540px;">
+                <div class = "row g-0">
+                    <div class = "col-md-4">
+                        <img src = "./icon.jfif" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class = "col-md-8">
+                        <div class = "card-body">
+                            <h5 class = "card-title">首席 D1stance</h5>
+                            <p class = "card-text">我是現在就讀於中正大學資訊工程學系一年級的D1stance，目前正在努力鑽研程式演算法競賽與網頁前後端工程。</p>
+                            <p class = "card-text"><small class = "text-muted">GitHub: <a href = "https://github.com/syzygy608" target = "_blank">syzygy608</a></small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class = "card mb-3" style = "max-width: 540px;">
+                <div class = "row g-0">
+                    <div class = "col-md-4">
+                        
+                    </div>
+                    <div class = "col-md-8">
+                        <div class = "card-body">
+                            <h5 class = "card-title">技術測試</h5>
+                            <p class = "card-text">???????</p>
+                            <p class = "card-text"><small class = "text-muted">GitHub: ...</a></small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id = "message">現正招收新成員，如爬蟲、API相關撰寫或者是安全測試員。</div>
+            <div id = "title">聯絡我們</div>
+            <div id = "message">
+                由於目前本網站僅為通識課期末專題，尚未建立專屬聯絡方式，有興趣加入團隊或給予意見者請透過<a href = "https://www.instagram.com/_s330_t/" target = "_blank">本人IG</a>
+            </div>
+        </div>
+        <footer>
+            <div class = "text-center p-4 text-black-50" style = "background-color: rgb(226, 223, 194);">
+                © Developed By Pineapple Team
+            </div>
+        </footer> 
+        <script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity = "sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin = "anonymous"></script>   
+    </body>
+    <script src = "https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity = "sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin = "anonymous"></script>
+    <script src = "./jquery.rowspanizer.js"></script>
+    <script src = "./jquery.rowspanizer.min.js"></script>
+    <script src = "https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src = "./main.js"></script>
+</html>
