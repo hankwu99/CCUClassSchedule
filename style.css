@@ -102,11 +102,12 @@ a.nav-link
     border-collapse: separate;
     margin: auto;
     margin-bottom: 1%;
+    padding-left: 2%;
     border:1.5px solid rgb(175, 174, 130);
     color: rgb(175, 174, 130);
-    text-align: center;
+    text-align: left;
     background: none;
-    width: 75%;
+    width: 80%;
 }
 
 .btn-delete
@@ -116,7 +117,8 @@ a.nav-link
     background: none;
     border: none;
     color: rgb(175, 174, 130);
-    margin-left: 5%;
+    float: right;
+    padding-right: 2%;
 }
 
 .btn-delete:hover
