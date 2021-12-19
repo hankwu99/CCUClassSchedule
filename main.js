@@ -119,7 +119,7 @@ function newCourse()
             let list = $(".coursesGroup").get();
             var isUsed = JSON.parse(localStorage.used);
             var courses = JSON.parse(localStorage.courses);
-            $(list).append(`<div class = "courselist">【課程名稱】[${className}] - 【教室位置】[${classLocation}] - 【課程時間】[${classDay} ${start} ~ ${end}]<button class = "btn-delete">✖</button></div>`)
+            $(list).append(`<div class = "courselist">[課程名稱]:${className} - [教室位置]: ${classLocation} - [課程時間]: ${classDay} ${start} ~ ${end}</div><button class = "btn-delete"><i class = "fa fa-trash-o"></i>刪除</button>`)
             courses.push({課程名稱: className, 上課教室: classLocation, 上課時間: {星期: classDay, 開始節次: start, 結束節次: end}});
             for(var i = startClass - 1; i < endClass; ++i)
                 isUsed[CHINESE_WORD_TO_NUMBER[classDay] - 1][i] = true;
@@ -390,7 +390,7 @@ async function init()
                 let classLocation = storedcourses[index]["上課教室"]
                 let startClass = 0
                 let endClass = 0
-                $(list).append(`<div class = "courselist">【課程名稱】[${className}] - 【教室位置】[${classLocation}] - 【課程時間】[${courseTime["星期"]} ${courseTime["開始節次"]} ~ ${courseTime["結束節次"]}]<button class = "btn-delete">✖</button></div>`)
+                $(list).append(`<div class = "courselist">[課程名稱]: ${className} - [教室位置]: ${classLocation} - [課程時間]: ${courseTime["星期"]} ${courseTime["開始節次"]} ~ ${courseTime["結束節次"]}<button type = "button" class = "btn-delete"><i class = "fa fa-trash-o"></i>刪除</button></div>`)
                 if(courseTime["開始節次"] >= 'A' && courseTime["開始節次"] <= 'J')
                 {
                     startClass = 1 + (CLASS_MAP[courseTime["開始節次"]] - 1) * 3
@@ -448,11 +448,8 @@ document.querySelector('.coursesGroup').addEventListener('click', function(event
                     start = 1 + (CLASS_MAP[storedcourses[i]["上課時間"]["開始節次"]] - 1) * 2
                     end = CLASS_MAP[storedcourses[i]["上課時間"]["結束節次"]] * 2 
                 }
-                console.log(day, start, end)
-                console.log(storedUsed);
                 for(var j = start - 1; j < end; ++j)
                     storedUsed[day - 1][j] = false;
-                console.log(storedUsed);
                 storedcourses.splice(i, 1);
                 break;
             }
