@@ -119,7 +119,7 @@ function newCourse()
             let list = $(".coursesGroup").get();
             var isUsed = JSON.parse(localStorage.used);
             var courses = JSON.parse(localStorage.courses);
-            $(list).append(`<div class = "courselist">[課程名稱]:${className} - [教室位置]: ${classLocation} - [課程時間]: ${classDay} ${start} ~ ${end}</div><button class = "btn-delete"><i class = "fa fa-trash-o"></i>刪除</button>`)
+            $(list).append(`<div class = "courselist">[課程名稱]:${className} - [教室位置]: ${classLocation} - [課程時間]: ${classDay} ${start} ~ ${end}<button class = "btn-delete"><i class = "fa fa-trash-o"></i>刪除</button></div>`)
             courses.push({課程名稱: className, 上課教室: classLocation, 上課時間: {星期: classDay, 開始節次: start, 結束節次: end}});
             for(var i = startClass - 1; i < endClass; ++i)
                 isUsed[CHINESE_WORD_TO_NUMBER[classDay] - 1][i] = true;
