@@ -8,6 +8,35 @@
 {
     min-height: 440px;
 }
+
+#aboutUs
+{
+    min-height: 440px;
+    width: 70%;
+    margin: auto;
+}
+
+#title
+{
+    font-size: 30px;
+    border-bottom: 2px solid rgb(177, 175, 155);
+    color: rgb(177, 175, 155);
+    padding-left: 5%;
+}
+
+.card.mb-3
+{
+    margin: auto;
+    margin-top: 2%;
+}
+
+#message
+{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding-left: 5%;
+}
+
 #nav
 {
     background-color: rgb(226, 223, 194);
@@ -44,6 +73,7 @@ a.nav-link
 #print, #setup
 {
     transition-duration: 0.4s;
+    font-weight: bold;
     border-radius: 15px;
     border: 1.5px solid rgb(175, 174, 130);
     width: 100px;
@@ -65,23 +95,35 @@ a.nav-link
 
 .courselist
 {
-    border-radius: 15px;
+    font-weight: bolder;
+    border-radius: 5px;
     padding-top: 0.5%;
     padding-bottom: 0.5%;
     border-collapse: separate;
-    margin-left: 15%;
-    margin-bottom: 0.5%;
+    margin: auto;
+    margin-bottom: 1%;
+    border:1.5px solid rgb(175, 174, 130);
+    color: rgb(175, 174, 130);
     text-align: center;
-    background: rgb(176, 233, 179);
-    width: 70%;
+    background: none;
+    width: 75%;
 }
+
 .btn-delete
 {
-    background-color: transparent;
+    transition-duration: 0.5s;
+    font-weight: bold;
+    background: none;
     border: none;
-    margin-left: 10px;
-    color: rgb(100, 100, 100);
+    color: rgb(175, 174, 130);
+    margin-left: 5%;
 }
+
+.btn-delete:hover
+{   
+    color: rgb(209, 106, 106);
+}
+
 #curriculum
 {
     opacity: 0.9;
