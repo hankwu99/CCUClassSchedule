@@ -1,12 +1,62 @@
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap");
 
-.input-group.input-group-sm, .input-group-text
+body
+{
+    margin: 0;
+    font-family: 'Noto Sans TC', '微軟正黑體', sans-serif;
+
+}
+
+.info
+{
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.inputlist
 {
     border: 1.5px solid rgb(175, 174, 130);
+    border-radius: 5px;
+    color: rgb(175, 174, 130);
+    height: auto;
+    width: 60%;
+    margin: auto;
+    font-weight: 400;
+    border-radius: 5px;
+    background: none;
 }
+
+.inputtext
+{
+    transition-duration: 0.5s;
+    height: auto;
+    border: 0;
+    vertical-align: middle;
+    outline: none;
+
+    background: linear-gradient(to left, rgb(255, 255, 255) 50%, rgb(226, 223, 194) 50%) right;
+    background-size: 200%;
+    transition: .5s ease-out;
+}
+
+.inputtext:focus
+{
+    background-color: rgb(226, 223, 194);
+    background-position: left;
+
+}
+
+.custom-select
+{
+    outline: none;
+    border: none;
+    color:rgb(175, 174, 130);
+    border-right: 1px solid rgb(175, 174, 130);
+}
+
 #container
 {
-    min-height: 440px;
+    min-height: 420px;
 }
 
 #aboutUs
@@ -24,10 +74,12 @@
     padding-left: 5%;
 }
 
-.card.mb-3
+.member.avatar
 {
-    margin: auto;
-    margin-top: 2%;
+    float: left;
+    width: 200px;
+    border-radius: 50%;
+    margin: 1% 1%;
 }
 
 #message
@@ -37,36 +89,75 @@
     padding-left: 5%;
 }
 
-#nav
+.member
+{
+    margin: 6% 3%;
+}
+
+.member.name
+{
+    font-size: 20px;
+}
+
+.navbar
 {
     background-color: rgb(226, 223, 194);
-    padding-left: 1%;
-    width: 100%;
+    height: 45px;
+    margin: 0;
 }
-a.nav-link
+
+.footerblock
 {
-    color: rgb(78, 78, 78);
+    background-color: rgb(226, 223, 194);
+    height: 40px;
+    margin-top: 3%;
+    text-align: center;
+    padding: 0;
+    padding-top: 10px;
+    bottom: 0;    
 }
-.inputarea
+
+.link
 {
-    margin-left: 15%;
-    margin-right: 15%;
+    transition-duration: 0.5s;
+    width: 70px;
+    height: 100%;
+    border: 0;
+    font-size: 15px;
+    font-weight: normal;
+    background: none;
+    float: right;
+    margin-right: 3%;
+    text-align: center;
 }
+
+.link:hover
+{
+    background-color: rgb(236, 236, 229);
+}
+
+.header
+{
+    font-size: 30px;
+    color: rgb(97, 97, 97);
+    padding: auto;
+    text-align: center;
+    float: left;
+    vertical-align: middle;
+}
+
 #submit
 {
     transition-duration: 0.4s;
-    border-left: 1.5px solid rgb(175, 174, 130);;
-    border-right: none;
-    border-top: none;
-    border-bottom: none;
+    border: 0;
     width: 30px;
     background-color: white; 
-    color: rgb(175, 174, 130);
+    color: rgb(196, 193, 171);
 }
 
 #submit:hover    
 {
-    background-color: rgb(175, 174, 130);
+    background-color: rgb(196, 193, 171);
     color: white;
 }
 
@@ -128,6 +219,7 @@ a.nav-link
 
 #curriculum
 {
+    
     opacity: 0.9;
     padding: 5px;
     border-spacing: 2px;
@@ -146,6 +238,7 @@ a.nav-link
 {
     border-bottom: solid 1px;
     text-align: center;
+    font-weight: lighter;
 }
 #curriculum tr td.time-td
 {

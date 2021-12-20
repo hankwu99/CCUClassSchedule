@@ -65,6 +65,12 @@ const CLASS_TO_TIME =
     'I': '19:15',
     'J': '20:45'
 }
+
+function isdigit(str)
+{
+    return /^\d+$/.test(str);
+}
+
 var courses = []
 var dayCheck = ['一', '二', '三', '四', '五', '六']
 var timeCheck = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
@@ -85,7 +91,7 @@ function newCourse()
         alert('您的課程日期錯誤。')
     else if(!timeCheck.includes(start) || !timeCheck.includes(end))
         alert('您的課程時間資訊錯誤。')
-    else if(parseInt(start) > parseInt(end))
+    else if(parseInt(start) > parseInt(end) || !isdigit(start) || !isdigit(end))
         alert('您的課程時間資訊錯誤。')
     else
     {
@@ -344,12 +350,18 @@ function block_capture()
 {
     html2canvas(document.querySelector("#curriculum")).then(function (canvas)
     {
-        a = document.createElement("a");
-        a.href = canvas
-            .toDataURL("curriculum/jpeg", 0.7)
-            .replace("curriculum/jpeg", "curriculum/octet-stream");
-        a.download = "curriculum.jpg";
+        var img = new Image();
+        imageURL = canvas.toDataURL();
+        img.crossOrigin = "Anonymous";
+        img.id = "getshot";
+        img.src = imageURL;
+        document.body.appendChild(img);
+
+        var a = document.createElement("a");
+        a.href = getshot.src;
+        a.download = "curriculum.png";
         a.click();
+        document.body.removeChild(img);
     });
 }
 async function getCourse()
