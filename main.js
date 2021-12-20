@@ -134,6 +134,7 @@ function newCourse()
         }
     }
 }
+
 async function resetTable()
 {
     var cloneTable = $("#curriculum").clone()
@@ -310,6 +311,7 @@ async function resetTable()
     })
     $("#curriculum").show()
 }
+
 function createCurriculum()
 {
     return new Promise((resolve, reject) => {
@@ -346,6 +348,7 @@ function createCurriculum()
         resolve(1);
     });
 }
+
 function block_capture() 
 {
     html2canvas(document.querySelector("#curriculum")).then(function (canvas)
@@ -364,6 +367,7 @@ function block_capture()
         document.body.removeChild(img);
     });
 }
+
 async function getCourse()
 {
     await resetTable()
