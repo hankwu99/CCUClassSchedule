@@ -134,7 +134,6 @@ function newCourse()
         }
     }
 }
-
 async function resetTable()
 {
     var cloneTable = $("#curriculum").clone()
@@ -311,7 +310,6 @@ async function resetTable()
     })
     $("#curriculum").show()
 }
-
 function createCurriculum()
 {
     return new Promise((resolve, reject) => {
@@ -348,26 +346,33 @@ function createCurriculum()
         resolve(1);
     });
 }
-
 function block_capture() 
 {
     html2canvas(document.querySelector("#curriculum")).then(function (canvas)
     {
-        var img = new Image();
-        imageURL = canvas.toDataURL();
-        img.crossOrigin = "Anonymous";
-        img.id = "getshot";
-        img.src = imageURL;
-        document.body.appendChild(img);
-
-        var a = document.createElement("a");
-        a.href = getshot.src;
-        a.download = "curriculum.png";
-        a.click();
-        document.body.removeChild(img);
+        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
+        {
+            var img = new Image();
+            img.crossOrigin = "Anonymous";
+            img.id = "getshot";
+            img.src = canvas.toDataURL("image/png", 0.5);
+            var url = canvas
+                .toDataURL("image/jpeg", 0.92)
+                .replace("image/jpeg", "image/octet-stream");
+            var myWindow = window.open("", "width = 1080, height = 1920");
+            myWindow.document.write('<a href = "' + url + '"><img src = "' + url + '"></a>');
+        }
+        else
+        {
+            a = document.createElement("a");
+            a.href = canvas
+                .toDataURL("image/jpeg", 0.92)
+                .replace("image/jpeg", "image/octet-stream");
+            a.download = "curriculum.jpg";
+            a.click();
+        }
     });
 }
-
 async function getCourse()
 {
     await resetTable()
