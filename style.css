@@ -268,9 +268,12 @@ body
 
 @media only screen and (max-width: 600px)
 {
-    #curriculum, .courselist, .inputlist
+    .courselist, .inputlist
     {
         width: 95%;
     }
-
+    #curriculum
+    {
+        width: 100%;
+    }
 }
