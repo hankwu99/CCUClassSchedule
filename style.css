@@ -230,26 +230,31 @@ body
     margin-left: auto;
     margin-right: auto;
 }
+
 #curriculum caption
 {
     text-align: center;
 }
+
 #curriculum th
 {
     border-bottom: solid 1px;
     text-align: center;
     font-weight: lighter;
 }
+
 #curriculum tr td.time-td
 {
     background-color: rgb(175, 174, 130);
     width: 55px;
     font-size: 13px;
 }
+
 #curriculum tr td:first-child
 {
     width: 5px;
 }
+
 #curriculum tr td
 {
     border-radius: 3px;
