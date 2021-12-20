@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap");
+
 body
 {
     margin: 0;
@@ -16,6 +17,7 @@ body
 {
     border: 1.5px solid rgb(175, 174, 130);
     border-radius: 5px;
+    padding-bottom: 0.5%;
     color: rgb(175, 174, 130);
     height: auto;
     width: 60%;
@@ -32,7 +34,7 @@ body
     border: 0;
     vertical-align: middle;
     outline: none;
-
+    border-bottom: 1px solid rgb(175, 174, 130);
     background: linear-gradient(to left, rgb(255, 255, 255) 50%, rgb(226, 223, 194) 50%) right;
     background-size: 200%;
     transition: .5s ease-out;
@@ -218,7 +220,6 @@ body
 
 #curriculum
 {
-    
     opacity: 0.9;
     padding: 5px;
     border-spacing: 2px;
@@ -229,31 +230,26 @@ body
     margin-left: auto;
     margin-right: auto;
 }
-
 #curriculum caption
 {
     text-align: center;
 }
-
 #curriculum th
 {
     border-bottom: solid 1px;
     text-align: center;
     font-weight: lighter;
 }
-
 #curriculum tr td.time-td
 {
     background-color: rgb(175, 174, 130);
     width: 55px;
     font-size: 13px;
 }
-
 #curriculum tr td:first-child
 {
     width: 5px;
 }
-
 #curriculum tr td
 {
     border-radius: 3px;
@@ -268,4 +264,13 @@ body
 #curriculum tr td.used-td
 {
     background-color: rgb(158, 214, 160);
+}
+
+@media only screen and (max-width: 600px)
+{
+    #curriculum, .courselist, .inputlist
+    {
+        width: 95%;
+    }
+
 }
