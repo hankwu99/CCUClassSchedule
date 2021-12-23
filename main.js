@@ -350,27 +350,12 @@ function block_capture()
 {
     html2canvas(document.querySelector("#curriculum")).then(function (canvas)
     {
-        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
-        {
-            var img = new Image();
-            img.crossOrigin = "Anonymous";
-            img.id = "getshot";
-            img.src = canvas.toDataURL("image/png", 0.5);
-            var url = canvas
-                .toDataURL("image/jpeg", 0.92)
-                .replace("image/jpeg", "image/octet-stream");
-            var myWindow = window.open("", "width = 1080, height = 1920");
-            myWindow.document.write('<a href = "' + url + '"><img src = "' + url + '"></a>');
-        }
-        else
-        {
-            a = document.createElement("a");
-            a.href = canvas
-                .toDataURL("image/jpeg", 0.92)
-                .replace("image/jpeg", "image/octet-stream");
-            a.download = "curriculum.jpg";
-            a.click();
-        }
+        a = document.createElement("a");
+        a.href = canvas
+            .toDataURL("image/jpeg", 0.92)
+            .replace("image/jpeg", "image/octet-stream");
+        a.download = "curriculum.jpg";
+        a.click();
     });
 }
 async function getCourse()
@@ -390,6 +375,11 @@ print.onclick = block_capture;
 
 async function init()
 {
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
+    {
+        print.style.display = "none";
+        alert("為了優化您的使用體驗，建議使用筆電/桌上型電腦進行操作，手機用戶暫時無法使用課表下載功能，敬請見諒。")
+    }
     var isUsed = new Array(); 
     for(var i = 0; i < 6; ++i)
     { 
@@ -436,10 +426,12 @@ async function init()
     }
     else
     {
+        alert("歡迎您初次來到本站，目前我們提供之功能如下\n1.手動輸入課程資訊(可保存於同裝置之同一瀏覽器)\n2.產生對應之課表\n3.下載課表圖檔(行動用戶則無此服務)\n我們預計將在下個版本開放課程搜尋功能，\n有任何問題歡迎透過關於頁面之回饋表單告知，\n鳳梨課表先在此感謝您的使用。")
         localStorage.used = JSON.stringify(isUsed);
         localStorage.courses = JSON.stringify(courses);
         document.getElementById("curriculum").style.visibility = "hidden";
     }
+    
 }
 
 init();
