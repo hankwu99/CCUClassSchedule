@@ -74,6 +74,7 @@ function isdigit(str)
 var courses = []
 var dayCheck = ['一', '二', '三', '四', '五', '六']
 var timeCheck = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+var xssSimpleCheck = [ ";", "/", "?", ":", "@", "&", "=", "+", "$", ",", "<", ">", "alert", "\\", "\/", ".", "]", "[", "\\", "^", "-", "_", "`", "\"", "'"]
 
 function newCourse()
 {
@@ -93,6 +94,8 @@ function newCourse()
         alert('您的課程時間資訊錯誤。')
     else if(parseInt(start) > parseInt(end) || !isdigit(start) || !isdigit(end))
         alert('您的課程時間資訊錯誤。')
+    else if((!xssSimpleCheck.includes(className)) || (!xssSimpleCheck.includes(classLocation)))
+        alert('您的輸入有不合法字元!')
     else
     {
         let startClass = 0;
