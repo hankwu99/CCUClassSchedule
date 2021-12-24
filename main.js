@@ -94,7 +94,7 @@ function newCourse()
         alert('您的課程時間資訊錯誤。')
     else if(parseInt(start) > parseInt(end) || !isdigit(start) || !isdigit(end))
         alert('您的課程時間資訊錯誤。')
-    else if((!xssSimpleCheck.includes(className)) || (!xssSimpleCheck.includes(classLocation)))
+    else if((xssSimpleCheck.includes(className)) || (xssSimpleCheck.includes(classLocation)))
         alert('您的輸入有不合法字元!')
     else
     {
