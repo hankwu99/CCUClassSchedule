@@ -92,12 +92,18 @@ function newCourse()
         alert('您的課程日期錯誤。')
     else if(!timeCheck.includes(start) || !timeCheck.includes(end))
         alert('您的課程時間資訊錯誤。')
-    else if(parseInt(start) > parseInt(end) || !isdigit(start) || !isdigit(end))
+    else if(parseInt(start) > parseInt(end) || (isdigit(start) && !isdigit(end)) || (!isdigit(start) && isdigit(end)))
         alert('您的課程時間資訊錯誤。')
-    else if((xssSimpleCheck.includes(className)) || (xssSimpleCheck.includes(classLocation)))
-        alert('您的輸入有不合法字元!')
     else
     {
+        for(var i = 0; i < xssSimpleCheck.length; ++i)
+        {
+            if(classLocation.includes(xssSimpleCheck[i]) || className.includes(xssSimpleCheck[i]))
+            {
+                alert('您的輸入有不合法字元!');
+                return;
+            }
+        }
         let startClass = 0;
         let endClass = 0;
         if(start >= 'A' && end <= 'J')
