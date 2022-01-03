@@ -381,7 +381,6 @@ var print = document.getElementById("print");
 submit.onclick = newCourse;
 setup.onclick = getCourse;
 print.onclick = block_capture;
-
 $(function()
 {
     $(".coursesGroup").accordion(
