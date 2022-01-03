@@ -193,18 +193,17 @@ body
     border-collapse: separate;
     margin: auto;
     margin-bottom: 1%;
-    padding-left: 2%;
     border:1.5px solid rgb(175, 174, 130);
     color: rgb(175, 174, 130);
     text-align: left;
     background: none;
-    width: 90%;
+    width: 100%;
+    height: auto;
 }
 
 .ui-accordion
 {
     width: 75%;
-    
     vertical-align: middle;
 }
 
