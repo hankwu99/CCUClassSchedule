@@ -131,7 +131,7 @@ function newCourse()
         }
         if(check())
         {
-            let list = $(".coursesGroup").get();
+            let list = $("#accordion").get();
             var isUsed = JSON.parse(localStorage.used);
             var courses = JSON.parse(localStorage.courses);
             $(list).append(`<div class = "courselist">[課程名稱]:${className} - [教室位置]: ${classLocation} - [課程時間]: ${classDay} ${start} ~ ${end}<button class = "btn-delete"><i class = "fa fa-trash-o"></i>刪除</button></div>`)
@@ -382,6 +382,17 @@ submit.onclick = newCourse;
 setup.onclick = getCourse;
 print.onclick = block_capture;
 
+$(function()
+{
+    $(".coursesGroup").accordion(
+    {
+        collapsible: true,
+        active: false,
+        animate: 400,
+        heightStyle: "content"
+    });
+});
+
 async function init()
 {
     if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
@@ -401,7 +412,7 @@ async function init()
         var storedcourses = JSON.parse(localStorage.courses);
         if(storedcourses.length !== 0)
         {
-            let list = $(".coursesGroup").get();
+            let list = $("#accordion").get();
             
             for(var index = 0; index < storedcourses.length; index++)
             {

@@ -142,7 +142,6 @@ body
     font-size: 30px;
     color: rgb(97, 97, 97);
     padding: auto;
-    text-align: center;
     float: left;
     vertical-align: middle;
 }
@@ -199,8 +198,28 @@ body
     color: rgb(175, 174, 130);
     text-align: left;
     background: none;
-    width: 80%;
+    width: 90%;
 }
+
+.ui-accordion
+{
+    width: 75%;
+    
+    vertical-align: middle;
+}
+
+.ui-accordion.ui-widget
+{
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 2%;
+}
+
+.ui-accordion-header.ui-state-active
+{
+    background:rgb(158, 214, 160);
+}
+
 
 .btn-delete
 {
