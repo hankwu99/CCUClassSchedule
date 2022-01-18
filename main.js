@@ -76,73 +76,6 @@ var dayCheck = ['一', '二', '三', '四', '五', '六']
 var timeCheck = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
 var xssSimpleCheck = [";", "/", "?", ":", "@", "&", "=", "+", "$", ",", "<", ">", "alert", "\\", "\/", ".", "]", "[", "\\", "^", "-", "_", "`", "\"", "'"]
 
-function newCourse()
-{
-    let className = document.getElementById("Course name").value;
-    let classLocation = document.getElementById("Classroom").value;
-    let e = document.getElementById("Select1");
-    let classDay = e.options[e.selectedIndex].text;
-    let start = document.getElementById("Select2").value;
-    let end = document.getElementById("Select3").value;
-    if(className === '')
-        alert('您的課程名稱不得為空。')
-    else if(classLocation === '')
-        alert('您的課程教室不得為空。')
-    else if(!dayCheck.includes(classDay))
-        alert('您的課程日期錯誤。')
-    else if(!timeCheck.includes(start) || !timeCheck.includes(end))
-        alert('您的課程時間資訊錯誤。')
-    else if(parseInt(start) > parseInt(end) || (isdigit(start) && !isdigit(end)) || (!isdigit(start) && isdigit(end)))
-        alert('您的課程時間資訊錯誤。')
-    else
-    {
-        for(var i = 0; i < xssSimpleCheck.length; ++i)
-        {
-            if(classLocation.includes(xssSimpleCheck[i]) || className.includes(xssSimpleCheck[i]))
-            {
-                alert('您的輸入有不合法字元!');
-                return;
-            }
-        }
-        let startClass = 0;
-        let endClass = 0;
-        if(start >= 'A' && end <= 'J')
-        {
-            startClass = 1 + (CLASS_MAP[start] - 1) * 3
-            endClass = 3 + (CLASS_MAP[end] - 1) * 3
-        }
-        else 
-        {
-            startClass = 1 + (CLASS_MAP[start] - 1) * 2
-            endClass = CLASS_MAP[end] * 2 
-        }
-        function check()
-        {
-            var storedUsed = JSON.parse(localStorage.used);
-            for(var i = startClass - 1; i < endClass; ++i)
-            {
-                if(storedUsed[CHINESE_WORD_TO_NUMBER[classDay] - 1][i])
-                {
-                    alert("您的課堂有所衝突!");
-                    return false;
-                }
-            }
-            return true;
-        }
-        if(check())
-        {
-            let list = $("#accordion").get();
-            var isUsed = JSON.parse(localStorage.used);
-            var courses = JSON.parse(localStorage.courses);
-            $(list).append(`<div class = "courselist">[課程名稱]:${className} - [教室位置]: ${classLocation} - [課程時間]: ${classDay} ${start} ~ ${end}<button class = "btn-delete"><i class = "fa fa-trash-o"></i>刪除</button></div>`)
-            courses.push({課程名稱: className, 上課教室: classLocation, 上課時間: {星期: classDay, 開始節次: start, 結束節次: end}});
-            for(var i = startClass - 1; i < endClass; ++i)
-                isUsed[CHINESE_WORD_TO_NUMBER[classDay] - 1][i] = true;
-            localStorage.used = JSON.stringify(isUsed);
-            localStorage.courses = JSON.stringify(courses);
-        }
-    }
-}
 async function resetTable()
 {
     var cloneTable = $("#curriculum").clone()
@@ -375,12 +308,85 @@ async function getCourse()
     document.getElementById("curriculum").style.visibility = "visible"; 
 }
 
+function newCourse()
+{
+    let className = document.getElementById("Course name").value;
+    let classLocation = document.getElementById("Classroom").value;
+    let e = document.getElementById("Select1");
+    let classDay = e.options[e.selectedIndex].text;
+    let start = document.getElementById("Select2").value;
+    let end = document.getElementById("Select3").value;
+    if(className === '')
+        alert('您的課程名稱不得為空。')
+    else if(classLocation === '')
+        alert('您的課程教室不得為空。')
+    else if(!dayCheck.includes(classDay))
+        alert('您的課程日期錯誤。')
+    else if(!timeCheck.includes(start) || !timeCheck.includes(end))
+        alert('您的課程時間資訊錯誤。')
+    else if(parseInt(start) > parseInt(end) || (isdigit(start) && !isdigit(end)) || (!isdigit(start) && isdigit(end)))
+        alert('您的課程時間資訊錯誤。')
+    else
+    {
+        for(var i = 0; i < xssSimpleCheck.length; ++i)
+        {
+            if(classLocation.includes(xssSimpleCheck[i]) || className.includes(xssSimpleCheck[i]))
+            {
+                alert('您的輸入有不合法字元!');
+                return;
+            }
+        }
+        let startClass = 0;
+        let endClass = 0;
+        if(start >= 'A' && end <= 'J')
+        {
+            startClass = 1 + (CLASS_MAP[start] - 1) * 3
+            endClass = 3 + (CLASS_MAP[end] - 1) * 3
+        }
+        else 
+        {
+            startClass = 1 + (CLASS_MAP[start] - 1) * 2
+            endClass = CLASS_MAP[end] * 2 
+        }
+        function check()
+        {
+            var storedUsed = JSON.parse(localStorage.used);
+            for(var i = startClass - 1; i < endClass; ++i)
+            {
+                if(storedUsed[CHINESE_WORD_TO_NUMBER[classDay] - 1][i])
+                {
+                    alert("您的課堂有所衝突!");
+                    return false;
+                }
+            }
+            return true;
+        }
+        if(check())
+        {
+            let list = $("#accordion").get();
+            var isUsed = JSON.parse(localStorage.used);
+            var courses = JSON.parse(localStorage.courses);
+            var elem = document.getElementById("default")
+            if(list.length === 1 && elem)
+                elem.parentNode.removeChild(elem);
+            $(list).append(`<div class = "courselist">[課程名稱]:${className} - [教室位置]: ${classLocation} - [課程時間]: ${classDay} ${start} ~ ${end}<button class = "btn-delete"><i class = "fa fa-trash-o"></i>刪除</button></div>`)
+            courses.push({課程名稱: className, 上課教室: classLocation, 上課時間: {星期: classDay, 開始節次: start, 結束節次: end}});
+            for(var i = startClass - 1; i < endClass; ++i)
+                isUsed[CHINESE_WORD_TO_NUMBER[classDay] - 1][i] = true;
+            localStorage.used = JSON.stringify(isUsed);
+            localStorage.courses = JSON.stringify(courses);
+            getCourse();
+        }
+    }
+}
+
 var submit = document.getElementById("submit");
-var setup = document.getElementById("setup");
 var print = document.getElementById("print");
+var clean = document.getElementById("clean");
 submit.onclick = newCourse;
-setup.onclick = getCourse;
 print.onclick = block_capture;
+clean.onclick = clear;
+
 $(function()
 {
     $(".coursesGroup").accordion(
@@ -392,12 +398,17 @@ $(function()
     });
 });
 
+
 async function init()
 {
     if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
     {
         print.style.display = "none";
-        alert("為了優化您的使用體驗，建議使用筆電/桌上型電腦進行操作，手機用戶暫時無法使用課表下載功能，敬請見諒。")
+        $("#cell").dialog(
+        {
+            modal: true,
+        })
+        
     }
     var isUsed = new Array(); 
     for(var i = 0; i < 6; ++i)
@@ -440,17 +451,27 @@ async function init()
             document.getElementById("curriculum").style.visibility = "visible";
         }
         else
-            document.getElementById("curriculum").style.visibility = "hidden";
+        {
+            getCourse()
+            $("#curriculum").show()
+            let list = $("#accordion").get();
+            $(list).append(`<div id = "default">尚無任何課程資訊，輸入資訊以建立您的課表</div>`)
+        }
         localStorage.used = JSON.stringify(isUsed);
     }
     else
     {
-        alert("歡迎您初次來到本站，目前我們提供之功能如下\n1.手動輸入課程資訊(可保存於同裝置之同一瀏覽器)\n2.產生對應之課表\n3.下載課表圖檔(行動用戶則無此服務)\n我們預計將在下個版本開放課程搜尋功能，\n有任何問題歡迎透過關於頁面之回饋表單告知，\n鳳梨課表先在此感謝您的使用。")
+        $("#hello").dialog(
+        {
+            modal: true
+        })
         localStorage.used = JSON.stringify(isUsed);
         localStorage.courses = JSON.stringify(courses);
         document.getElementById("curriculum").style.visibility = "hidden";
+        let list = $("#accordion").get();
+        $(list).append(`<div id = "default">尚無任何課程資訊，輸入資訊以建立您的課表</div>`)
+        getCourse()
     }
-    
 }
 
 init();
@@ -489,5 +510,40 @@ document.querySelector('.coursesGroup').addEventListener('click', function(event
         target.parentNode.remove()
         localStorage.used = JSON.stringify(storedUsed);
         localStorage.courses = JSON.stringify(storedcourses);//done
+        getCourse();
     }
 });
+
+
+function clear()
+{
+    var e = document.querySelector("#accordion");
+    e.innerHTML = ""
+    let list = $("#accordion").get();
+    $(list).append(`<div id = "default">尚無任何課程資訊，輸入資訊以建立您的課表</div>`)
+    var storedcourses = JSON.parse(localStorage.courses);
+    var storedUsed = JSON.parse(localStorage.used);
+    for(var i = 0; i < storedcourses.length; i++)
+    {
+        let start = 0;
+        let end = 0;
+        let day = CHINESE_WORD_TO_NUMBER[storedcourses[i]["上課時間"]["星期"]];
+        if(storedcourses[i]["上課時間"]["開始節次"] >= 'A' && storedcourses[i]["上課時間"]["開始節次"] <= 'J')
+        {
+            start = 1 + (CLASS_MAP[storedcourses[i]["上課時間"]["開始節次"]] - 1) * 3
+            end = 3 + (CLASS_MAP[storedcourses[i]["上課時間"]["結束節次"]] - 1) * 3
+        }
+        else 
+        {
+            start = 1 + (CLASS_MAP[storedcourses[i]["上課時間"]["開始節次"]] - 1) * 2
+            end = CLASS_MAP[storedcourses[i]["上課時間"]["結束節次"]] * 2 
+        }
+        for(var j = start - 1; j < end; ++j)
+            storedUsed[day - 1][j] = false;
+    }
+    cou = []
+    localStorage.used = JSON.stringify(storedUsed);
+    localStorage.removeItem("courses");
+    localStorage.courses = JSON.stringify(cou);
+    getCourse();
+}

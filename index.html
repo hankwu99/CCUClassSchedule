@@ -20,17 +20,19 @@
 
     <body>
         <ul class = "navbar">
-            <div class = "header">CCU 鳳梨課表</div>
-            <button class = "link" type = "button" onclick = "location.href ='./about.html';"">關於</button>
+            <a class = "header" href ='./' style="text-decoration:none">CCU 鳳梨課表</a>
+            <button class = "link" type = "button" onclick = "location.href ='./about.html';"">關於<br>我們</button>
         </ul>
 
         <br>
         <div id = "container">
             <div class = "inputarea">
+                <div class = "test" style = "color: rgb(177, 175, 155); width: 60%; margin:auto;">目前提供手動輸入資訊建立課表功能，請在下方輸入資訊</div>
                 <div class = "inputlist">
-                    <span class = "info">課程資訊輸入</span>
+                    <span class = "info">課程資訊</span>
                     <input type = "text" id = "Course name" placeholder = "課程名稱" class = "inputtext">
                     <input type = "text" id = "Classroom" placeholder = "課程教室" class = "inputtext">
+                    <br id = "forsmall" style = "display: none;">
                     <select class = "custom-select" id = "Select1">
                         <option selected>星期</option>
                         <option value = "1">一</option>
@@ -96,11 +98,11 @@
                         <option value = "I">I</option>
                         <option value = "J">J</option>
                     </select>
-                    <button type = "button" id = "submit"><i class = "fa fa-plus"></i></button>
+                    <button type = "button" id = "submit"><i class = "fa fa-angle-double-up"></i>產生課表</button>
                 </div>
                 <div id = "buttongroup">
                     <br>
-                    <button type = "button" id = "setup"><i class = "fa fa-angle-double-up"></i>  產生課表</button>
+                    <button type = "button" id = "clean"><i class = "fa fa-eraser"></i>   清空課表</button>
                     <button type = "button" id = "print"><i class = "fa fa-download"></i>   輸出圖片</button>
                 </div>
                 <br>
@@ -114,17 +116,35 @@
                 <table id = "curriculum" class = "table">
                 </table>
             </div>
+            <footer class = "footerblock">© Pineapple Class Schedule 2022</footer>
         </div>
-        <div class = "footerblock">
-            © Pineapple Class Schedule 2021
+
+        <div id = "hello" title = "提醒" style = "display: none;">
+            <p>歡迎您初次來到本站，目前我們提供之功能如下<br> 
+                1.手動輸入課程資訊(可保存於同裝置之同一瀏覽器)<br>
+                2.產生對應之課表<br>
+                3.下載課表圖檔(行動用戶則無此服務)<br>
+                我們預計將在下個版本開放課程搜尋功能，<br>
+                有任何問題歡迎透過關於頁面之回饋表單告知，<br>
+                鳳梨課表先在此感謝您的使用。
+            </p>
+        </div>
+        <div id = "cell" title = "手機用戶注意" style = "display: none;">
+            <p>為了優化您的使用體驗，<br>
+                建議使用筆電/桌上型電腦進行操作<br>
+                手機用戶暫時無法下載課表圖檔，<br>
+                敬請見諒。
+            </p>
         </div>
     </body>
+    
+
     <script src = "https://code.jquery.com/jquery-3.6.0.min.js" integrity = "sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin = "anonymous"></script>
     <script src = "./jquery.rowspanizer.js"></script>
     <script src = "./jquery.rowspanizer.min.js"></script>
     <link rel = "stylesheet" href = "//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
     <script src = "https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
     <script src = "https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-
+    <link id = "theme" href = "themes/hot-sneaks/jquery-ui.min.css" rel = "stylesheet">
     <script src = "./main.js"></script>
 </html>

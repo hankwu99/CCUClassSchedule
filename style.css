@@ -1,10 +1,17 @@
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap");
 
+html
+{
+    height: 100vh;
+}
+
 body
 {
     margin: 0;
     font-family: 'Noto Sans TC', '微軟正黑體', sans-serif;
-
+    min-height: 100vh;
+    padding: 0;
+    border: 0;
 }
 
 .info
@@ -19,11 +26,11 @@ body
     border-radius: 5px;
     padding-bottom: 0.5%;
     color: rgb(175, 174, 130);
-    height: auto;
+    height: 20px;
     width: 60%;
     margin: auto;
     font-weight: 400;
-    border-radius: 5px;
+    border-radius: 8px;
     background: none;
 }
 
@@ -53,16 +60,11 @@ body
     border: none;
     color:rgb(175, 174, 130);
     border-right: 1px solid rgb(175, 174, 130);
-}
-
-#container
-{
-    min-height: 420px;
+    height: auto;
 }
 
 #aboutUs
 {
-    min-height: 440px;
     width: 70%;
     margin: auto;
 }
@@ -114,8 +116,8 @@ body
     margin-top: 3%;
     text-align: center;
     padding: 0;
-    padding-top: 10px;
-    bottom: 0;    
+    padding-top: 10px; 
+    width: 100%; 
 }
 
 .link
@@ -150,18 +152,22 @@ body
 {
     transition-duration: 0.4s;
     border: 0;
-    width: 30px;
-    background-color: white; 
+    width: auto;
+    border-right: 1px solid rgb(196, 193, 171);;
+    background-color: white;
     color: rgb(196, 193, 171);
+    font-weight: bold;
+    height: auto;
 }
 
 #submit:hover    
 {
-    background-color: rgb(196, 193, 171);
+    font-weight: bolder; 
+    background-color:rgb(196, 193, 171); 
     color: white;
 }
 
-#print, #setup
+#print, #clean
 {
     transition-duration: 0.4s;
     font-weight: bold;
@@ -173,7 +179,7 @@ body
     color: rgb(175, 174, 130);
 }
 
-#print:hover, #setup:hover
+#print:hover, #clean:hover
 {
     background-color: rgb(175, 174, 130);
     color: white;
@@ -243,30 +249,35 @@ body
     border-radius: 5px;
     background-color: rgb(226, 223, 194);
     border-collapse: separate;
-    width: 70%;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
 }
+
 #curriculum caption
 {
     text-align: center;
 }
+
 #curriculum th
 {
     border-bottom: solid 1px;
     text-align: center;
     font-weight: lighter;
 }
+
 #curriculum tr td.time-td
 {
     background-color: rgb(175, 174, 130);
     width: 55px;
     font-size: 13px;
 }
+
 #curriculum tr td:first-child
 {
     width: 5px;
 }
+
 #curriculum tr td
 {
     border-radius: 3px;
@@ -283,14 +294,52 @@ body
     background-color: rgb(158, 214, 160);
 }
 
-@media only screen and (max-width: 600px)
+
+@media only screen and (max-width: 700px)
 {
-    .courselist, .inputlist
+    .courselist
+    {
+        width: 95%;
+    }
+    .inputlist
     {
         width: 95%;
     }
     #curriculum
     {
         width: 100%;
+    }
+    .coursesGroup
+    {
+        width: 90%;
+    }
+    #aboutUs
+    {
+        width: 90%;
+    }
+}
+
+
+@media only screen and (max-width: 1185px)
+{
+    .inputlist
+    {
+        height: auto;
+    }
+    .courselist
+    {
+        height: 40px;
+    }
+}
+
+@media only screen and (max-width: 435px)
+{
+    .inputlist
+    {
+        height: auto;
+    }
+    .courselist
+    {
+        height: 65px;
     }
 }
