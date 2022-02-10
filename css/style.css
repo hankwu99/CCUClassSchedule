@@ -150,6 +150,13 @@ body
     margin: 0 auto;
 }
 
+.googleform
+{
+    padding-left: .1rem;
+    padding-right: .1rem;
+    margin: 0 auto;
+}
+
 .footerblock
 {
     background: #eacda3;  /* fallback for old browsers */
