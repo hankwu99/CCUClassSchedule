@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap");
+
+html
+{
+    height: 100vh;
+    font-size: 16px;
+}
+
+body
+{
+    margin: 0;
+    font-family: 'Noto Sans TC', '微軟正黑體', sans-serif;
+    min-height: 100vh;
+    padding: 0;
+    border: 0;
+}
+
+.coursesGroup table td
+{
+    white-space: nowrap;
+}
+
+#header
+{
+    background: #eacda3;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #d6ae7b, #eacda3);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #d6ae7b, #eacda3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.logo
+{
+    width: 8rem;
+    margin-right: 1rem;
+}
+
+#navbtn
+{
+    border: 0;
+    margin: 0.1rem 0.2rem;
+    transition: 1s;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+#navbtn:hover
+{
+    background-color:rgba(255, 255, 255, 0.5);;
+}
+
+.infoArea
+{
+    margin: 0 auto;
+    padding-top: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+}
+
+#submit, #search, #print, #clean, #open
+{
+    background-color:#cea671; 
+    color: white;
+    border: rgb(196, 193, 171);
+    opacity: 0.8;
+    margin-top: .1rem;
+    margin-bottom: .1rem;
+    margin-left: .1rem;
+    margin-right: .1rem;
+}
+
+#open
+{
+    float: left;
+}
+
+#submit:hover, #search:hover, #print:hover, #clean:hover, #open:hover
+{
+    opacity: 1;
+}
+
+#buttongroup
+{
+    text-align: right;
+}
+
+.coursesGroup
+{
+    background: rgb(230, 228, 212);
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+#accordion
+{
+    width: 100%;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+}
+
+.courselist
+{
+    font-weight:120;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    border-collapse: separate;
+    margin-bottom: 1%;
+    border-bottom:1.5px solid #cea671;
+    color: #cea671;
+}
+
+#default
+{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.btn-delete
+{
+    transition-duration: 0.5s;
+    font-weight: 200;
+    background: none;
+    border: none;
+    color: #cea671;
+    padding-right: 2%;
+}
+
+.btn-delete:hover
+{   
+    color: rgb(209, 106, 106);
+}
+
+#title
+{
+    font-size: 30px;
+    border-bottom: 2px solid rgb(177, 175, 155);
+    color: rgb(177, 175, 155);
+    padding-left: 3rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.message
+{
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin: 0 auto;
+}
+
+.footerblock
+{
+    background: #eacda3;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #d6ae7b, #eacda3);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #d6ae7b, #eacda3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+    height: 5rem;
+    margin-top: 3%;
+    text-align: center;
+    padding: 0;
+    padding-top: 2rem; 
+    width: 100%; 
+    font-size: 1rem;
+}
+
+.link
+{
+    transition-duration: 0.5s;
+    width: 70px;
+    height: 100%;
+    border: 0;
+    font-size: 15px;
+    font-weight: normal;
+    background: none;
+    float: right;
+    margin-right: 3%;
+    text-align: center;
+}
+
+.link:hover
+{
+    background-color: rgb(236, 236, 229);
+}
+
+#curriculum
+{
+    opacity: 0.9;
+    padding: 5px;
+    border-spacing: 2px;
+    border-radius: 5px;
+    background-color: rgb(226, 223, 194);
+    border-collapse: separate;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#curriculum caption
+{
+    text-align: center;
+}
+
+#curriculum th
+{
+    border-bottom: solid 1px;
+    text-align: center;
+    font-weight: lighter;
+}
+
+#curriculum tr td.time-td
+{
+    background-color: rgb(175, 174, 130);
+    width: 55px;
+    font-size: 1rem;
+}
+
+#curriculum tr td:first-child
+{
+    width: 5px;
+}
+
+#curriculum tr td
+{
+    border-radius: 3px;
+    opacity: 0.9;
+    text-align: center;
+    vertical-align: middle;
+    width: 150px;
+    padding: 0;
+    
+}
+
+#curriculum tr td.used-td
+{
+    background-color: rgb(158, 214, 160);
+}
+
+@media (max-width: 767.98px)
+{
+    .message
+    {
+        padding-left: .3rem;
+        padding-right: .3rem;
+        margin: 0 auto;
+    }
+}
