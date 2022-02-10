@@ -5,7 +5,8 @@
         <meta name = "viewport" content = "width = device-width, initial-scale = 1">
         <meta name = "description" content = "專屬於中正大學學生的排課系統——鳳梨課表">
         <title>CCU Class Schedule</title>
-        <link rel = "stylesheet" type = "text/css" href = "style.css">
+        <link href = "https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel = "stylesheet" integrity = "sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin = "anonymous">
+        <link rel = "stylesheet" type = "text/css" href = "./css/style.css">
         <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src = "https://www.googletagmanager.com/gtag/js?id=G-4V5KYBRM5L"></script>
@@ -19,132 +20,232 @@
     </head>
 
     <body>
-        <ul class = "navbar">
-            <a class = "header" href ='./' style="text-decoration:none">CCU 鳳梨課表</a>
-            <button class = "link" type = "button" onclick = "location.href ='./about.html';"">關於<br>我們</button>
-        </ul>
-
+        <nav class = "navbar navbar-expand-lg navbar-light" id = "header">
+            <div class = "container-fluid">
+                <a href = './' style = "text-decoration:none">
+                    <img src = './img/logo.png' class = 'logo'>
+                </a>
+                <button class = "navbar-toggler" type = "button" data-bs-toggle = "collapse" data-bs-target = "#navbarTogglerDemo02" aria-controls = "navbarTogglerDemo02" aria-expanded = "false" aria-label = "Toggle navigation">
+                    <span class = "navbar-toggler-icon"></span>
+                </button>
+                <div class = "collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class = "navbar-nav">
+                        <li class = "nav-item">
+                            <a id = "navbtn" class = "nav-link" href = "./about.html">關於我們</a> 
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
         <br>
-        <div id = "container">
-            <div class = "inputarea">
-                <div class = "test" style = "color: rgb(177, 175, 155); width: 60%; margin:auto;">目前提供手動輸入資訊建立課表功能，請在下方輸入資訊</div>
-                <div class = "inputlist">
-                    <span class = "info">課程資訊</span>
-                    <input type = "text" id = "Course name" placeholder = "課程名稱" class = "inputtext">
-                    <input type = "text" id = "Classroom" placeholder = "課程教室" class = "inputtext">
-                    <br id = "forsmall" style = "display: none;">
-                    <select class = "custom-select" id = "Select1">
-                        <option selected>星期</option>
-                        <option value = "1">一</option>
-                        <option value = "2">二</option>
-                        <option value = "3">三</option>
-                        <option value = "4">四</option>
-                        <option value = "5">五</option>
-                        <option value = "6">六</option>
-                    </select>
-                    <select class = "custom-select" id = "Select2">
-                        <option selected>開始節次</option>
-                        <option value = "1">1</option>
-                        <option value = "2">2</option>
-                        <option value = "3">3</option>
-                        <option value = "4">4</option>
-                        <option value = "5">5</option>
-                        <option value = "6">6</option>
-                        <option value = "7">7</option>
-                        <option value = "8">8</option>
-                        <option value = "9">9</option>
-                        <option value = "10">10</option>
-                        <option value = "11">11</option>
-                        <option value = "12">12</option>
-                        <option value = "13">13</option>
-                        <option value = "14">14</option>
-                        <option value = "15">15</option>
-                        <option value = "A">A</option>
-                        <option value = "B">B</option>
-                        <option value = "C">C</option>
-                        <option value = "D">D</option>
-                        <option value = "E">E</option>
-                        <option value = "F">F</option>
-                        <option value = "G">G</option>
-                        <option value = "H">H</option>
-                        <option value = "I">I</option>
-                        <option value = "J">J</option>
-                    </select>
-                    <select class = "custom-select" id = "Select3">
-                        <option selected>結束節次</option>
-                        <option value = "1">1</option>
-                        <option value = "2">2</option>
-                        <option value = "3">3</option>
-                        <option value = "4">4</option>
-                        <option value = "5">5</option>
-                        <option value = "6">6</option>
-                        <option value = "7">7</option>
-                        <option value = "8">8</option>
-                        <option value = "9">9</option>
-                        <option value = "10">10</option>
-                        <option value = "11">11</option>
-                        <option value = "12">12</option>
-                        <option value = "13">13</option>
-                        <option value = "14">14</option>
-                        <option value = "15">15</option>
-                        <option value = "A">A</option>
-                        <option value = "B">B</option>
-                        <option value = "C">C</option>
-                        <option value = "D">D</option>
-                        <option value = "E">E</option>
-                        <option value = "F">F</option>
-                        <option value = "G">G</option>
-                        <option value = "H">H</option>
-                        <option value = "I">I</option>
-                        <option value = "J">J</option>
-                    </select>
-                    <button type = "button" id = "submit"><i class = "fa fa-angle-double-up"></i>產生課表</button>
-                </div>
+        <div class = "container col-12 col-lg-9 col-md-10 col-sm-11 col-xs-12">
+            <div class = "alert alert-warning alert-dismissible fade show" role = "alert">
+                <strong>更新通知 </strong>a1.5.0提供了UI的全面更新
+                <button type = "button" class = "btn-close" data-bs-dismiss = "alert" aria-label = "Close"></button>
+              </div>
+            <div class = "infoArea shadow-lg col-12">
+                <form>
+                    <label class = "col-form-label">手動輸入資訊建立課表</label>
+                    <div class = "row mb-3">
+                        <div class = 'col-md-2'>
+                            <label for = "formGroupInput" class = "col-form-label">課程資訊</label>
+                        </div>
+                        <div class = 'col-md-5'>
+                            <input type = "text" id = "Course name" placeholder = "課程名稱" aria-label = "Course name" class = "form-control">
+                        </div>
+                        <div class = 'col-md-3'>
+                            <input type = "text" id = "Classroom" placeholder = "課程教室" aria-label = "Classroom" class = "form-control">
+                        </div>
+                        <div class = 'col-md-2'>
+                            <select class = "form-select col" id = "Select1">
+                                <option selected>星期</option>
+                                <option value = "1">一</option>
+                                <option value = "2">二</option>
+                                <option value = "3">三</option>
+                                <option value = "4">四</option>
+                                <option value = "5">五</option>
+                                <option value = "6">六</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class = "row mb-3">
+                        <div class = 'col-md-2'>
+                            <select class = "form-select col" id = "Select2">
+                                <option selected>開始節次</option>
+                                <option value = "1">1</option>
+                                <option value = "2">2</option>
+                                <option value = "3">3</option>
+                                <option value = "4">4</option>
+                                <option value = "5">5</option>
+                                <option value = "6">6</option>
+                                <option value = "7">7</option>
+                                <option value = "8">8</option>
+                                <option value = "9">9</option>
+                                <option value = "10">10</option>
+                                <option value = "11">11</option>
+                                <option value = "12">12</option>
+                                <option value = "13">13</option>
+                                <option value = "14">14</option>
+                                <option value = "15">15</option>
+                                <option value = "A">A</option>
+                                <option value = "B">B</option>
+                                <option value = "C">C</option>
+                                <option value = "D">D</option>
+                                <option value = "E">E</option>
+                                <option value = "F">F</option>
+                                <option value = "G">G</option>
+                                <option value = "H">H</option>
+                                <option value = "I">I</option>
+                                <option value = "J">J</option>
+                            </select>
+                        </div>
+                        <div class = 'col-md-2'>
+                            <select class = "form-select col" id = "Select3">
+                                <option selected>結束節次</option>
+                                <option value = "1">1</option>
+                                <option value = "2">2</option>
+                                <option value = "3">3</option>
+                                <option value = "4">4</option>
+                                <option value = "5">5</option>
+                                <option value = "6">6</option>
+                                <option value = "7">7</option>
+                                <option value = "8">8</option>
+                                <option value = "9">9</option>
+                                <option value = "10">10</option>
+                                <option value = "11">11</option>
+                                <option value = "12">12</option>
+                                <option value = "13">13</option>
+                                <option value = "14">14</option>
+                                <option value = "15">15</option>
+                                <option value = "A">A</option>
+                                <option value = "B">B</option>
+                                <option value = "C">C</option>
+                                <option value = "D">D</option>
+                                <option value = "E">E</option>
+                                <option value = "F">F</option>
+                                <option value = "G">G</option>
+                                <option value = "H">H</option>
+                                <option value = "I">I</option>
+                                <option value = "J">J</option>
+                            </select>
+                        </div>
+                        <div class = 'col-md-2'>
+                            <button type = "button" class = "btn btn-primary col" id = "submit" style = "text-align: right;">產生課表</button>
+                        </div>
+                    </div>
+                </form>
+                <!--
+                <form>
+                    <label class = "form-label">搜尋課程資訊</label>
+                    <div class = "input-group mb-3">
+                        <span class = "input-group-text">課程搜尋</span>
+                        <select class = "form-select" id = "Select4">
+                            <option selected value = "0">學院別</option>
+                            <option value = "1">文學院</option>
+                            <option value = "2">理學院</option>
+                            <option value = "3">社會科學學院</option>
+                            <option value = "4">工學院</option>
+                            <option value = "5">管理學院</option>
+                            <option value = "6">法學院</option>
+                            <option value = "7">教育學院</option>
+                            <option value = "8">其他</option>
+                        </select>
+                        <select class = "form-select" id = "Select5">
+                            <option selected>系所</option>
+                        </select>			
+                        <select class = "form-select" id = "Select6" disabled>
+                            <option selected>向度</option>
+                        </select>
+                        <select class = "form-select" id = "Select7" disabled>
+                            <option selected>課程選擇</option>
+                        </select>					
+                        <button type = "submit" class = "btn btn-primary" id = "search">搜尋課程</button>
+                    </div>
+                </form>
+                -->
+                <hr>
                 <div id = "buttongroup">
-                    <br>
-                    <button type = "button" id = "clean"><i class = "fa fa-eraser"></i>   清空課表</button>
-                    <button type = "button" id = "print"><i class = "fa fa-download"></i>   輸出圖片</button>
+                    <button class = "btn btn-primary" type = "button" id = "open" data-bs-toggle = "collapse" data-bs-target = "#course" aria-expanded = "false" aria-controls = "course">
+                        展開課程列表
+                    </button>
+                    <button type = "button" class = "btn btn-primary" id = "clean"><i class = "fa fa-eraser"></i>   清空課表</button>
+                    <button type = "button" class = "btn btn-primary" id = "print"><i class = "fa fa-download"></i>   輸出圖片</button>
                 </div>
-                <br>
-                <div class = "coursesGroup">
-                    <h1>課程列表</h1>
-                    <div id = "accordion">
+                <div class = "coursesGroup col-12">
+                    <div class = "collapse table-responsive" id = "course">
+                        <table id = 'accordion' class = 'table table-hover'>
+                            <thead>
+                                <tr>
+                                    <th scope = "col">課程名稱</th>
+                                    <th scope = "col">課程教室</th>
+                                    <th scope = "col">課程時間</th>
+                                    <th scope = "col">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-            <div class = "table-div">
+            
+            <div class = "table-div col-12">
                 <table id = "curriculum" class = "table">
-                </table>
+                </table>    
             </div>
-            <footer class = "footerblock">© Pineapple Class Schedule 2022</footer>
         </div>
+        <footer class = "footerblock">© Pineapple Class Schedule 2022</footer>
 
-        <div id = "hello" title = "提醒" style = "display: none;">
-            <p>歡迎您初次來到本站，目前我們提供之功能如下<br> 
-                1.手動輸入課程資訊(可保存於同裝置之同一瀏覽器)<br>
-                2.產生對應之課表<br>
-                3.下載課表圖檔(行動用戶則無此服務)<br>
-                我們預計將在下個版本開放課程搜尋功能，<br>
-                有任何問題歡迎透過關於頁面之回饋表單告知，<br>
-                鳳梨課表先在此感謝您的使用。
-            </p>
+        <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">溫馨提醒</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    歡迎您初次來到本站，目前我們提供之功能如下<br> 
+                    1.手動輸入課程資訊(可保存於同裝置之同一瀏覽器)<br>
+                    2.產生對應之課表<br>
+                    3.下載課表圖檔(行動用戶則無此服務)<br>
+                    我們預計將在下個版本開放課程搜尋功能，<br>
+                    有任何問題歡迎透過關於頁面之回饋表單告知，<br>
+                    鳳梨課表先在此感謝您的使用。
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                </div>
+            </div>
+            </div>
         </div>
-        <div id = "cell" title = "手機用戶注意" style = "display: none;">
-            <p>為了優化您的使用體驗，<br>
-                建議使用筆電/桌上型電腦進行操作<br>
-                手機用戶暫時無法下載課表圖檔，<br>
-                敬請見諒。
-            </p>
+        <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">手機用戶注意</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    為了優化您的使用體驗，<br>
+                    建議使用筆電/桌上型電腦進行操作<br>
+                    手機用戶暫時無法下載課表圖檔，<br>
+                    敬請見諒。
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                </div>
+            </div>
+            </div>
         </div>
+        <script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity = "sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin = "anonymous"></script>
     </body>
     
-
     <script src = "https://code.jquery.com/jquery-3.6.0.min.js" integrity = "sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin = "anonymous"></script>
-    <script src = "./jquery.rowspanizer.js"></script>
-    <script src = "./jquery.rowspanizer.min.js"></script>
+    <script src = "./js/jquery.rowspanizer.js"></script>
+    <script src = "./js/jquery.rowspanizer.min.js"></script>
     <link rel = "stylesheet" href = "//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
     <script src = "https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
     <script src = "https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <link id = "theme" href = "themes/hot-sneaks/jquery-ui.min.css" rel = "stylesheet">
-    <script src = "./main.js"></script>
+    <script src = "./js/main.js"></script>
 </html>
