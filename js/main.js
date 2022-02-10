@@ -509,7 +509,7 @@ async function init()
             keyboard: false
         })
         myModal.show();
-        if(!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
+        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
         {
             print.style.display = "none";
             var myModal2 = new bootstrap.Modal(document.getElementById('staticBackdrop2'), {
@@ -525,6 +525,8 @@ async function init()
         $(list).append(`<div id = "default">尚無任何課程資訊，輸入資訊以建立您的課表</div>`)
         getCourse()
     }
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
+        print.style.display = "none";
 }
 
 init();
