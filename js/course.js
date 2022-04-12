@@ -105,21 +105,7 @@ export function createCurriculum()
             {
                 var tds = $(rows[i]).children('td')
                 $(tds[day + 2]).append(`<div class = "course-time">${startTime}</div>`)
-                if(courseName.length > 8)
-                {
-                    var tmp = "";
-                    var len = courseName.length;
-                    let j = 0;
-                    while(len > 0)
-                    {
-                        tmp += courseName.substring(0 + (j * 8), 8 + j * 8) + "<br>"
-                        j++;
-                        len -= 8;
-                    }
-                    $(tds[day + 2]).append(`<div class = "course-name break-words">${tmp}</div>`)
-                }
-                else
-                    $(tds[day + 2]).append(`<div class = "course-name">${courseName}</div>`)
+                $(tds[day + 2]).append(`<div class = "course-name break-words">${courseName}</div>`)
                 $(tds[day + 2]).append(`<div class = "course-classroom">${courseClassroom}</div>`)
                 $(tds[day + 2]).addClass('used-td')
             }
