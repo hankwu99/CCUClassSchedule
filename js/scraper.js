@@ -1,5 +1,5 @@
-const puppeteer = require('puppeteer');
-const cheerio = require('cheerio');
+import { launch } from 'puppeteer';
+import { load } from 'cheerio';
 
 const CHINESE_DEPART_TO_NUMBER =
 {
@@ -13,8 +13,9 @@ const CHINESE_DEPART_TO_NUMBER =
     '體育中心': 'F000', '通識中心': 'I001', '軍訓': 'V000', '語言中心': 'Z121' 
 }
 
-module.exports = (place) => 
+function getContents(place) 
 {
+    let data = [];
     async function scraper(department)
     {
         var baseUrl = "https://kiki.ccu.edu.tw/~ccmisp06/Course/";
@@ -24,14 +25,13 @@ module.exports = (place) =>
             depart = department.toString();
         else
             depart = department;
-        const browser = await puppeteer.launch();
+        const browser = await launch();
         const page = await browser.newPage();
         await page.goto(baseUrl + depart + baseunder);
         await page.waitForSelector('table');
         let body = await page.content();
-        let $ = await cheerio.load(body);
-        let rows = await $('center table tbody tr').length;
-        let data = [];
+        let $ = load(body);
+        let rows = $('center table tbody tr').length;
         console.log("loding...")
         for(let i = 2; i <= rows; ++i)
         {
@@ -44,9 +44,9 @@ module.exports = (place) =>
             for(let j = 0 ; j < dataindex.length; ++j)
             {
                 if((department === 'I001' && dataindex[j] === 5) || (department != 'I001' && dataindex[j] === 4))
-                    templist.push(await $(`center table tbody tr:nth-child(${i}) td:nth-child(${dataindex[j]}) font`).html().split("<br>")[0]);
+                    templist.push($(`center table tbody tr:nth-child(${i}) td:nth-child(${dataindex[j]}) font`).html().split("<br>")[0]);
                 else
-                    templist.push(await $(`center table tbody tr:nth-child(${i}) td:nth-child(${dataindex[j]}) font`).text());
+                    templist.push($(`center table tbody tr:nth-child(${i}) td:nth-child(${dataindex[j]}) font`).text());
             }
             data.push(templist);
         }
@@ -54,4 +54,8 @@ module.exports = (place) =>
         console.log(data)
     };
     scraper(CHINESE_DEPART_TO_NUMBER[place]);
+    return data;
 }
+
+var selection = document.querySelectorAll('#searchForm select');
+console.log(selection)

@@ -1,0 +1,7 @@
+package-lock.json
+node_modules
+package.json
+tailwind.config.js
+./css/style.css
+department.md 
+changelog.md 
